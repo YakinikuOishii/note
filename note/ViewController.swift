@@ -9,9 +9,10 @@
 import UIKit
 import JTAppleCalendar
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var calendarView: JTAppleCalendarView!
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
     
@@ -25,8 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // ナビゲーションバー
-        self.navigationController?.isToolbarHidden = false
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "bg"), for: .topAttached, barMetrics: .default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
         
         // 曜日ラベル
         for i in 0...6 {
@@ -39,11 +39,38 @@ class ViewController: UIViewController {
             weekLabel.textColor = UIColor.white
             weekLabel.font = UIFont(name: "Dense", size: 23)
             self.view.addSubview(weekLabel)
-            
-            setupCalendarView()
         }
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // 予定追加するボタン
+        let addSchedulesButton = UIButton()
+        addSchedulesButton.frame = CGRect(x: 250, y: 530,width: 100, height: 100)
+        addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())
+        addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
+        self.view.addSubview(addSchedulesButton)
+        
+        setupCalendarView()
+        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.dataSource = self
+    }
+    
+    // ボタンのイベント
+    @objc func buttonTapped(sender: Any) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "write") as! WriteSchedulesViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
+    // テーブルビューセルの設定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        
+        cell?.textLabel?.text = "テスト"
+        return cell!
     }
     
     func setupCalendarView() {
