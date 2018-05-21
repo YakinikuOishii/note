@@ -22,6 +22,10 @@ class WriteSchedulesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func saveSchedules() {
+        self.performSegue(withIdentifier: "toViewController", sender: (Any).self)
+    }
+    
 
     /*
     // MARK: - Navigation

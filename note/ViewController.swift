@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // 予定追加するボタン
         let addSchedulesButton = UIButton()
-        addSchedulesButton.frame = CGRect(x: 250, y: 530,width: 100, height: 100)
+        addSchedulesButton.frame = CGRect(x: 250, y: 535,width: 100, height: 100)
         addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())
         addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
         self.view.addSubview(addSchedulesButton)
