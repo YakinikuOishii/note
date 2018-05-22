@@ -23,7 +23,12 @@ class WriteSchedulesViewController: UIViewController {
     }
     
     @IBAction func saveSchedules() {
-        self.performSegue(withIdentifier: "toViewController", sender: (Any).self)
+        dismiss(animated: true, completion: nil)
+//        self.performSegue(withIdentifier: "toViewController", sender: (Any).self)
+    }
+    
+    @IBAction func cancel() {
+        dismiss(animated: true, completion: nil)
     }
     
 

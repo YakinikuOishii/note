@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource {
     
@@ -21,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAD"]
     var weekLabel: UILabel!
     
-    let grayColor = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 0.4)
+    let gray = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 0.4)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // 予定追加するボタン
         let addSchedulesButton = UIButton()
-        addSchedulesButton.frame = CGRect(x: 250, y: 535,width: 100, height: 100)
+        addSchedulesButton.frame = CGRect(x: 255, y: 540,width: 100, height: 100)
         addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())
         addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
         self.view.addSubview(addSchedulesButton)
@@ -51,6 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         setupCalendarView()
         
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.rowHeight = 85
         tableView.dataSource = self
     }
     
@@ -61,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.present(nextView, animated: true, completion: nil)
     }
     
-    // テーブルビューセルの設定
+    // テーブルビュー
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -91,7 +93,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             if cellState.dateBelongsTo == .thisMonth {
                 validCell.dateLabel.textColor = UIColor.white
             }else{
-                validCell.dateLabel.textColor = grayColor
+                validCell.dateLabel.textColor = gray
             }
         }
     }
@@ -152,6 +154,7 @@ extension ViewController: JTAppleCalendarViewDataSource {
         func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
             handleCellSelected(view: cell, cellState: cellState)
             handleCellTextColor(view: cell, cellState: cellState)
+            // ここのdate使う
         }
         func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
             handleCellSelected(view: cell, cellState: cellState)
