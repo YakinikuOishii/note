@@ -23,9 +23,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAD"]
     var weekLabel: UILabel!
     
-//    var saveToday: UserDefaults = UserDefaults.standard
-    
     let gray = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 0.4)
+    
+    var selectedDate: Date!
+    var titleImage: UIImage!
+    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewwill")
+        tableView.reloadData()
+    }
+    
     // ボタンのイベント
     @objc func buttonTapped(sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
@@ -72,10 +80,18 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         
-        cell?.textLabel?.text = "テスト"
-        return cell!
+        if selectedDate != nil {
+            print("not nil")
+            let title = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
+            for i in title {
+                titleImage = UIImage(data: i.title!)
+            }
+            cell.titleImageView.image = titleImage
+        }
+        
+        return cell
     }
     
     func setupCalendarView() {
@@ -154,12 +170,19 @@ extension ViewController: JTAppleCalendarViewDataSource {
             
             return cell
         }
+        
+        //  選択した日付
         func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
             handleCellSelected(view: cell, cellState: cellState)
             handleCellTextColor(view: cell, cellState: cellState)
-            appDelegate.today = date
-//            saveToday.set(date, forKey: "today")
+            selectedDate = date
+            print("date is")
+            print(date)
+            print("selectedDate is")
+            print(selectedDate)
+            appDelegate.selectedDate = date
         }
+        
         func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
             handleCellSelected(view: cell, cellState: cellState)
             handleCellTextColor(view: cell, cellState: cellState)
