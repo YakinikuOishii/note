@@ -153,10 +153,10 @@
 			children = (
 				5906BB8F20B2DCC9000C18C3 /* images */,
 				59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */,
-				5906BB9D20B42F9B000C18C3 /* realmDataSet.swift */,
 				59D2F7DF20AAF78000C3B2BC /* CustomCell.swift */,
 				590698D720B1C91A009F5350 /* DrawView.swift */,
 				590698CF20B17762009F5350 /* WriteSchedulesViewController.swift */,
+				5906BB9D20B42F9B000C18C3 /* realmDataSet.swift */,
 				59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */,
 				59D2F7AF20AAE2EB00C3B2BC /* Main.storyboard */,
 				59D2F7B220AAE2EE00C3B2BC /* Assets.xcassets */,

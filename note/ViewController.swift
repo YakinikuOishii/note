@@ -18,9 +18,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var monthLabel: UILabel!
     
     let formatter = DateFormatter()
+    var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAD"]
     var weekLabel: UILabel!
+    
+//    var saveToday: UserDefaults = UserDefaults.standard
     
     let gray = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 0.4)
     
@@ -154,7 +157,8 @@ extension ViewController: JTAppleCalendarViewDataSource {
         func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
             handleCellSelected(view: cell, cellState: cellState)
             handleCellTextColor(view: cell, cellState: cellState)
-            // ここのdate使う
+            appDelegate.today = date
+//            saveToday.set(date, forKey: "today")
         }
         func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
             handleCellSelected(view: cell, cellState: cellState)
