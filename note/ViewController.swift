@@ -76,7 +76,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // テーブルビュー
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if selectedDate != nil {
+            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
+            return dataSet.count
+        }else {
+          return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,8 +89,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         if selectedDate != nil {
             print("not nil")
-            let title = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
-            for i in title {
+            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
+            for i in dataSet {
                 titleImage = UIImage(data: i.title!)
             }
             cell.titleImageView.image = titleImage
@@ -178,8 +183,7 @@ extension ViewController: JTAppleCalendarViewDataSource {
             selectedDate = date
             print("date is")
             print(date)
-            print("selectedDate is")
-            print(selectedDate)
+            tableView.reloadData()
             appDelegate.selectedDate = date
         }
         
