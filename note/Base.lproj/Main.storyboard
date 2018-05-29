@@ -135,6 +135,7 @@
                         <outlet property="monthLabel" destination="crh-aQ-uhc" id="QBG-gs-rmn"/>
                         <outlet property="tableView" destination="NJw-mA-dPF" id="v4n-ho-1bP"/>
                         <outlet property="yearLabel" destination="8O4-qS-tM6" id="sRc-ZY-WbI"/>
+                        <segue destination="5Po-hg-CUB" kind="presentation" identifier="toWriteSchedules" id="NAr-Tn-9yU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -154,19 +155,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-8c-uZx" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-30" y="435" width="437" height="200"/>
+                                <rect key="frame" x="-30" y="275" width="437" height="370"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBR-H5-qnW">
                                 <rect key="frame" x="11" y="98" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="30"/>
-                                <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-1H-GhS">
-                                <rect key="frame" x="11" y="405" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="30"/>
                                 <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,15 +185,10 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="note" customModuleProvider="target">
                                 <rect key="frame" x="-30" y="125" width="437" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-Cu-Hbw" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-30" y="280" width="437" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEI-ha-Wzy">
-                                <rect key="frame" x="11" y="250" width="37" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-1H-GhS">
+                                <rect key="frame" x="11" y="245" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="30"/>
                                 <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -211,7 +200,6 @@
                     </view>
                     <connections>
                         <outlet property="memoView" destination="jHI-8c-uZx" id="rVK-I8-h3k"/>
-                        <outlet property="timeView" destination="kjw-Cu-Hbw" id="PZ1-7f-M4V"/>
                         <outlet property="titleView" destination="8yr-Xp-emb" id="51O-1R-jiY"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewController" id="EDh-f5-piW"/>
                     </connections>

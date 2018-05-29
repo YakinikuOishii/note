@@ -13,37 +13,53 @@ class WriteSchedulesViewController: UIViewController {
     
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let drawView = DrawView()
+    let realm = try! Realm()
     
     var selectedDate: Date!
     
     @IBOutlet var titleView: DrawView!
-    @IBOutlet var timeView: DrawView!
+//    @IBOutlet var timeView: DrawView!
     @IBOutlet var memoView: DrawView!
     
     var titleData: NSData!
-    var timeData: NSData!
+//    var timeData: NSData!
     var memoData: NSData!
     
     var titleImage: UIImage!
-    var timeImage: UIImage!
+//    var timeImage: UIImage!
     var memoImage: UIImage!
     
     let dataSet = realmDataSet()
+    
+    let borderColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedDate = appDelegate.selectedDate
+        titleView.layer.borderColor = borderColor.cgColor
+//        timeView.layer.borderColor = borderColor.cgColor
+        memoView.layer.borderColor = borderColor.cgColor
+        titleView.layer.borderWidth = 1.5
+//        timeView.layer.borderWidth = 1.5
+        memoView.layer.borderWidth = 1.5
+        
+        
+        let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
+        for i in dataSet {
+            titleView.lastDrawImage = UIImage(data: i.title!)
+            memoView.lastDrawImage = UIImage(data: i.memo!)
+        }
         
     }
     
     @IBAction func saveSchedules() {
         titleRepresentation()
-        timeRepresentation()
+//        timeRepresentation()
         memoRepresentation()
         
         dataSet.date = selectedDate
         dataSet.title = titleData! as Data
-        dataSet.time = timeData! as Data
+//        dataSet.time = timeData! as Data
         dataSet.memo = memoData! as Data
         
         save()
@@ -72,10 +88,10 @@ class WriteSchedulesViewController: UIViewController {
         titleData = UIImagePNGRepresentation(titleImage)! as NSData
     }
     
-    func timeRepresentation() {
-        timeImage = timeView.snapShot()
-        timeData = UIImagePNGRepresentation(timeImage)! as NSData
-    }
+//    func timeRepresentation() {
+//        timeImage = timeView.snapShot()
+//        timeData = UIImagePNGRepresentation(timeImage)! as NSData
+//    }
     
     func memoRepresentation() {
         memoImage = memoView.snapShot()

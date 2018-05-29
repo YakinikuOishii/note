@@ -10,7 +10,7 @@ import UIKit
 import JTAppleCalendar
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet var calendarView: JTAppleCalendarView!
     @IBOutlet var tableView: UITableView!
@@ -23,15 +23,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAD"]
     var weekLabel: UILabel!
     
+    var titleArray: [Data] = []
+    var memoArray: [Data] = []
+    
     let gray = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 0.4)
     
     var selectedDate: Date!
-    var titleImage: UIImage!
+    var today = Date()
+//    var titleImage: UIImage!
     
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        titleArray.removeAll()
+//        print(titleArray)
         // ナビゲーションバー
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
         
@@ -59,11 +66,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = 85
-        tableView.dataSource = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewwill")
+        
+        
         tableView.reloadData()
     }
     
@@ -86,24 +96,33 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
-        
         if selectedDate != nil {
             print("not nil")
             let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
             for i in dataSet {
-                titleImage = UIImage(data: i.title!)
+                titleArray.append(i.title! as Data)
             }
-            cell.titleImageView.image = titleImage
+            cell.titleImageView.image = UIImage(data: titleArray[indexPath.row] as Data)
+            
         }
         
         return cell
     }
     
+    //セルをタップした時のメソッド
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let nextVC = WriteSchedulesViewController()
+        print("セルがタップされたよ")
+        performSegue(withIdentifier: "toWriteSchedules", sender: nil)
+    }
+    
+    
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         calendarView.backgroundColor = UIColor.clear
-        
+        calendarView.selectDates([today])
+        calendarView.reloadData(withanchor: today)
         calendarView.visibleDates { (visibleDates) in
             self.setupViewsOfCalendarView(from: visibleDates)
             }

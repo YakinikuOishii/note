@@ -15,7 +15,7 @@ class DrawView: UIView {
     var penSize: CGFloat = 6.0
     
     private var path: UIBezierPath!
-    private var lastDrawImage: UIImage!
+    var lastDrawImage: UIImage!
     
     override func draw(_ rect: CGRect) {
         lastDrawImage?.draw(at: CGPoint.zero)
