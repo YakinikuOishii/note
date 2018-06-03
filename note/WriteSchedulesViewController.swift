@@ -14,22 +14,18 @@ class WriteSchedulesViewController: UIViewController {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let drawView = DrawView()
     let realm = try! Realm()
+    let dataSet = realmDataSet()
     
     var selectedDate: Date!
+    var index: Int!
     
     @IBOutlet var titleView: DrawView!
-//    @IBOutlet var timeView: DrawView!
     @IBOutlet var memoView: DrawView!
     
     var titleData: NSData!
-//    var timeData: NSData!
     var memoData: NSData!
-    
     var titleImage: UIImage!
-//    var timeImage: UIImage!
     var memoImage: UIImage!
-    
-    let dataSet = realmDataSet()
     
     let borderColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1.0)
 
@@ -37,29 +33,35 @@ class WriteSchedulesViewController: UIViewController {
         super.viewDidLoad()
         selectedDate = appDelegate.selectedDate
         titleView.layer.borderColor = borderColor.cgColor
-//        timeView.layer.borderColor = borderColor.cgColor
         memoView.layer.borderColor = borderColor.cgColor
         titleView.layer.borderWidth = 1.5
-//        timeView.layer.borderWidth = 1.5
         memoView.layer.borderWidth = 1.5
         
+        index = appDelegate.index
         
         let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
-        for i in dataSet {
-            titleView.lastDrawImage = UIImage(data: i.title!)
-            memoView.lastDrawImage = UIImage(data: i.memo!)
+        var tableArray: [Data] = []
+        var memoArray: [Data] = []
+        if index != nil {
+            print("indexは空じゃないよ")
+            for i in dataSet {
+                tableArray.append(i.title!)
+                memoArray.append(i.memo!)
+                titleView.lastDrawImage = UIImage(data: tableArray[index])
+                memoView.lastDrawImage = UIImage(data: memoArray[index])
+            }
+        }else{
+            print("indexは空だよ")
         }
         
     }
     
     @IBAction func saveSchedules() {
         titleRepresentation()
-//        timeRepresentation()
         memoRepresentation()
         
         dataSet.date = selectedDate
         dataSet.title = titleData! as Data
-//        dataSet.time = timeData! as Data
         dataSet.memo = memoData! as Data
         
         save()
@@ -88,11 +90,6 @@ class WriteSchedulesViewController: UIViewController {
         titleData = UIImagePNGRepresentation(titleImage)! as NSData
     }
     
-//    func timeRepresentation() {
-//        timeImage = timeView.snapShot()
-//        timeData = UIImagePNGRepresentation(timeImage)! as NSData
-//    }
-    
     func memoRepresentation() {
         memoImage = memoView.snapShot()
         memoData = UIImagePNGRepresentation(memoImage)! as NSData
@@ -102,23 +99,6 @@ class WriteSchedulesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    func viewWithTag(_ tag: Int) -> UIView? {
-//        if tag == 1 {
-//            titleImage = drawView.snapShot()
-//            titleData = UIImagePNGRepresentation(titleImage)! as NSData
-//        }else if tag == 2 {
-//            timeImage = drawView.snapShot()
-//            timeData = UIImagePNGRepresentation(timeImage)! as NSData
-//        }else if tag == 3 {
-//            memoImage = drawView.snapShot()
-//            memoData = UIImagePNGRepresentation(memoImage)! as NSData
-//        }
-//        return view
-//    }
-    
-    
-    
 
     /*
     // MARK: - Navigation

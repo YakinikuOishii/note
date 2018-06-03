@@ -23,8 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAD"]
     var weekLabel: UILabel!
     
-    var titleArray: [Data] = []
-    var memoArray: [Data] = []
+//    var memoArray: [Data] = []
     
     let gray = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 0.4)
     
@@ -36,9 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        titleArray.removeAll()
-//        print(titleArray)
+
         // ナビゲーションバー
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
         
@@ -62,26 +59,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
         self.view.addSubview(addSchedulesButton)
         
-        setupCalendarView()
-        
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = 85
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        setupCalendarView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewwill")
-        
-        
         tableView.reloadData()
     }
     
     // ボタンのイベント
     @objc func buttonTapped(sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "write") as! WriteSchedulesViewController
-        self.present(nextView, animated: true, completion: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "write") as! WriteSchedulesViewController
+        nextVC.index = nil
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     // テーブルビュー
@@ -96,24 +92,54 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
+        var titleArray: [Data] = []
         if selectedDate != nil {
-            print("not nil")
             let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
             for i in dataSet {
                 titleArray.append(i.title! as Data)
+                print(titleArray)
             }
             cell.titleImageView.image = UIImage(data: titleArray[indexPath.row] as Data)
-            
         }
-        
         return cell
     }
+    
     
     //セルをタップした時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let nextVC = WriteSchedulesViewController()
+//        nextVC.index = indexPath.row
+        appDelegate.index = indexPath.row
         print("セルがタップされたよ")
         performSegue(withIdentifier: "toWriteSchedules", sender: nil)
+    }
+    
+    // スワイプ削除
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    // 削除処理
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.delete {
+//            // これはRealmSwiftでデータを削除しているケース
+////            let deleteHistory = self.result![indexPath.row]
+//            // トランザクションを開始してオブジェクトを削除します
+////            try! realm!.write {
+////                realm!.delete(deleteHistory)
+////            }
+//            // TableViewを再読み込み.
+//            self.tableView.reloadData()
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let deleteData = realm.objects(realmDataSet.self)[indexPath.row]
+            try! realm.write {
+                realm.delete(deleteData)
+            }
+            self.tableView.reloadData()
+        }
     }
     
     
