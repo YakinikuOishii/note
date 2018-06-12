@@ -21,11 +21,14 @@ class WriteSchedulesViewController: UIViewController {
     
     @IBOutlet var titleView: DrawView!
     @IBOutlet var memoView: DrawView!
+    @IBOutlet var addButton: UIButton!
     
     var titleData: NSData!
     var memoData: NSData!
     var titleImage: UIImage!
     var memoImage: UIImage!
+    
+    var editMode: Bool = true
     
     let borderColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1.0)
 
@@ -54,20 +57,65 @@ class WriteSchedulesViewController: UIViewController {
             print("indexは空だよ")
         }
         
+        // 画像が表示されているかどうかで編集モードを切り替える
+        if titleView.lastDrawImage != nil {
+            print("わーい")
+            addButton.setImage(UIImage(named: "penIcon3.png"), for: UIControlState())
+            
+            // ビューに書き込めないようにする
+            editMode = false
+            titleView.editMode = false
+            memoView.editMode = false
+            print("viewdid")
+            print("titleviewのbool")
+            print(titleView.editMode)
+            print("editModeのbool")
+            print(editMode)
+        }else{
+            print("えー")
+        }
+        
     }
     
     @IBAction func saveSchedules() {
         titleRepresentation()
         memoRepresentation()
+        print("saveSchedule")
+        print(editMode)
         
-        dataSet.date = selectedDate
-        dataSet.title = titleData! as Data
-        dataSet.memo = memoData! as Data
-        
-        save()
-        
-        dismiss(animated: true, completion: nil)
+        if editMode == true {
+            
+            dataSet.date = selectedDate
+            dataSet.title = titleData! as Data
+            dataSet.memo = memoData! as Data
+            save()
+            dismiss(animated: true, completion: nil)
+            
+        }else if editMode == false {
+            print("viewのboolは")
+            print(titleView.editMode)
+            // 編集モードだったら、内容を更新して保存。新規セルを作らないように！
+            if titleView.editMode == true {
+                print("true呼ばれた")
+                titleView.editMode = false
+                memoView.editMode = false
+                let appdateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)[index]
+                try! realm.write {
+                    appdateData.title = titleData! as Data
+                    appdateData.memo = memoData! as Data
+                }
+                dismiss(animated: true, completion: nil)
+                
+            }else if titleView.editMode == false {
+                print("false呼ばれた")
+                // 編集モードじゃなかったら、ボタンを変更して書き込めるようにする。
+                titleView.editMode = true
+                memoView.editMode = true
+                addButton.setImage(UIImage(named: "checkMark.png"), for: UIControlState())
+            }
+        }
     }
+    
     
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)

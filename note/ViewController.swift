@@ -72,11 +72,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
     }
     
-    // ボタンのイベント
+    // 追加ボタンのイベント
     @objc func buttonTapped(sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         let nextVC = storyboard.instantiateViewController(withIdentifier: "write") as! WriteSchedulesViewController
-        nextVC.index = nil
+//        nextVC.index = nil
+        appDelegate.index = nil
         self.present(nextVC, animated: true, completion: nil)
     }
     
@@ -104,33 +105,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    
-    //セルをタップした時のメソッド
+   // タップされた時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let nextVC = WriteSchedulesViewController()
-//        nextVC.index = indexPath.row
         appDelegate.index = indexPath.row
         print("セルがタップされたよ")
         performSegue(withIdentifier: "toWriteSchedules", sender: nil)
     }
     
-    // スワイプ削除
+    // セルの削除ボタン
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    // 削除処理
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
-//        if editingStyle == UITableViewCellEditingStyle.delete {
-//            // これはRealmSwiftでデータを削除しているケース
-////            let deleteHistory = self.result![indexPath.row]
-//            // トランザクションを開始してオブジェクトを削除します
-////            try! realm!.write {
-////                realm!.delete(deleteHistory)
-////            }
-//            // TableViewを再読み込み.
-//            self.tableView.reloadData()
-//        }
-//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
@@ -142,7 +127,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    
+    // カレンダー関連
     func setupCalendarView() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0

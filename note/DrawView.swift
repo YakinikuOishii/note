@@ -17,41 +17,81 @@ class DrawView: UIView {
     private var path: UIBezierPath!
     var lastDrawImage: UIImage!
     
+    var editMode: Bool = true
+    
     override func draw(_ rect: CGRect) {
         lastDrawImage?.draw(at: CGPoint.zero)
         penColor.setStroke()
         path?.stroke()
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let currentPoint = touches.first!.location(in: self)
-        path = UIBezierPath()
-        path?.lineWidth = penSize
-        path?.lineCapStyle = CGLineCap.round
-        path?.lineJoinStyle = CGLineJoin.round
-        path?.move(to: currentPoint)
+        if editMode == true {
+            let currentPoint = touches.first!.location(in: self)
+            path = UIBezierPath()
+            path?.lineWidth = penSize
+            path?.lineCapStyle = CGLineCap.round
+            path?.lineJoinStyle = CGLineJoin.round
+            path?.move(to: currentPoint)
+        }else{
+
+        }
+//        let currentPoint = touches.first!.location(in: self)
+//        path = UIBezierPath()
+//        path?.lineWidth = penSize
+//        path?.lineCapStyle = CGLineCap.round
+//        path?.lineJoinStyle = CGLineJoin.round
+//        path?.move(to: currentPoint)
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let currentPoint = touches.first!.location(in: self)
-        path?.addLine(to: currentPoint)
-        setNeedsDisplay()
+        if editMode == true {
+            let currentPoint = touches.first!.location(in: self)
+            path?.addLine(to: currentPoint)
+            setNeedsDisplay()
+        }else{
+
+        }
+//        let currentPoint = touches.first!.location(in: self)
+//        path?.addLine(to: currentPoint)
+//        setNeedsDisplay()
+
+        
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let currentPoint = touches.first!.location(in: self)
-        path.addLine(to: currentPoint)
-        lastDrawImage = snapShot()
-        setNeedsDisplay()
+        if editMode == true {
+            let currentPoint = touches.first!.location(in: self)
+            path.addLine(to: currentPoint)
+            lastDrawImage = snapShot()
+            setNeedsDisplay()
+        }else{
+
+        }
+//        let currentPoint = touches.first!.location(in: self)
+//        path.addLine(to: currentPoint)
+//        lastDrawImage = snapShot()
+//        setNeedsDisplay()
+        
     }
     
     func snapShot() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-        lastDrawImage?.draw(at: CGPoint.zero)
-        penColor.setStroke()
-        path?.stroke()
+        // スクリーンショットを取得
+//        let rect: CGRect = CGRect(x: 0, y: 125, width: 375, height: 105)
+        UIGraphicsBeginImageContext(bounds.size)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
+        
+        
+//        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
+//        lastDrawImage?.draw(at: CGPoint.zero)
+//        penColor.setStroke()
+//        path?.stroke()
+        
+//        UIGraphicsEndImageContext()
     }
     
 //    func borderColor() {

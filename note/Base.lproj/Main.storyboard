@@ -183,7 +183,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-30" y="125" width="437" height="105"/>
+                                <rect key="frame" x="-30" y="125" width="455" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -199,6 +199,7 @@
                         <viewLayoutGuide key="safeArea" id="0w2-W9-VyW"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="aTZ-iN-b1M" id="0iS-xr-iDU"/>
                         <outlet property="memoView" destination="jHI-8c-uZx" id="rVK-I8-h3k"/>
                         <outlet property="titleView" destination="8yr-Xp-emb" id="51O-1R-jiY"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewController" id="EDh-f5-piW"/>
