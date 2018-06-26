@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class WriteSchedulesViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class WriteSchedulesViewController: UIViewController {
     let dataSet = realmDataSet()
     
     var selectedDate: Date!
+    var saveDate: Date!
     var index: Int!
     
     @IBOutlet var titleView: DrawView!
@@ -52,6 +54,7 @@ class WriteSchedulesViewController: UIViewController {
             for i in dataSet {
                 tableArray.append(i.title!)
                 memoArray.append(i.memo!)
+                saveDate = i.date!
                 titleView.lastDrawImage = UIImage(data: tableArray[index])
                 memoView.lastDrawImage = UIImage(data: memoArray[index])
             }
@@ -129,6 +132,31 @@ class WriteSchedulesViewController: UIViewController {
             try realm.write {
                 realm.add(dataSet)
             }
+            
+            // 通知
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self as? UNUserNotificationCenterDelegate
+
+            let content = UNMutableNotificationContent()
+            content.title = "タイトルだよ"
+            content.body = "通知だよ"
+            content.badge = 1
+            content.sound = .default()
+            // 毎日21時に通知が来る
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar.dateComponents([.year, .month, .day], from: saveDate)
+//            let date = DateComponents()
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
+            let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+
+            center.add(request)
+            
+            
+//            let saveDate = realm.objects(realmDataSet.self)
+//            for i in saveDate {
+//                appDelegate.dateArray.append(i.date!)
+//            }
+//            print(appDelegate.dateArray)
         } catch {
             
         }

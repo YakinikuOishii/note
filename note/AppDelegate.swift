@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,9 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedDate: Date!
     var image: UIImage!
     var index: Int!
+    
+    var dateArray: [Date] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // アプリ起動時に呼ばれる
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Allowed")
+            } else {
+                print("Didn't allowed")
+            }
+        }
         return true
     }
 
@@ -27,9 +38,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        print("アプリ閉じた時")
+//        let center = UNUserNotificationCenter.current()
+//        center.delegate = self as? UNUserNotificationCenterDelegate
+//        
+//        let content = UNMutableNotificationContent()
+//        content.title = "タイトルだよ"
+//        content.body = "通知だよ"
+//        content.badge = 1
+//        content.sound = .default()
+//        // let component = DateComponents(calendar: Calendar.current, year: 2017, month: 3, day: 27, hour: 23, minute: 30)
+//        // 指定した秒数後に通知
+//        //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        // 毎日21時に通知が来る
+//        let date = DateComponents(hour:21, minute:0)
+//        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
+//        let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+//        
+//        center.add(request)
     }
+    
+    
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.

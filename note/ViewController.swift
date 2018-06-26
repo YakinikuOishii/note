@@ -72,7 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
     }
     
-    // 追加ボタンのイベント
+    // 新規作成ボタンのイベント
     @objc func buttonTapped(sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         let nextVC = storyboard.instantiateViewController(withIdentifier: "write") as! WriteSchedulesViewController
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-   // タップされた時のメソッド
+   // テーブルビューセルがタップされた時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.index = indexPath.row
         print("セルがタップされたよ")
