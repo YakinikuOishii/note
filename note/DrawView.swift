@@ -14,7 +14,7 @@ class DrawView: UIView {
     var penColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
     var penSize: CGFloat = 6.0
     
-    private var path: UIBezierPath!
+    var path: UIBezierPath!
     var lastDrawImage: UIImage!
     
     var editMode: Bool = true

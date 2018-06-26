@@ -22,6 +22,8 @@ class WriteSchedulesViewController: UIViewController {
     @IBOutlet var titleView: DrawView!
     @IBOutlet var memoView: DrawView!
     @IBOutlet var addButton: UIButton!
+    @IBOutlet var titleDeleteButton: UIButton!
+    @IBOutlet var memoDeleteButton: UIButton!
     
     var titleData: NSData!
     var memoData: NSData!
@@ -131,6 +133,25 @@ class WriteSchedulesViewController: UIViewController {
             
         }
         
+    }
+    
+    @IBAction func deleteTitle() {
+//        titleView.removeFromSuperview()
+//        titleView.lastDrawImage = UIImage(named: "cellImg")
+        titleView.lastDrawImage = nil
+        titleView.path = nil
+        titleView.setNeedsDisplay()
+        // viewを更新
+        titleView.layoutIfNeeded()
+    }
+    
+    @IBAction func deleteMemo() {
+//        memoView.removeFromSuperview()
+//        memoView.lastDrawImage = UIImage(named: "cellImg")
+        memoView.lastDrawImage = nil
+        memoView.path = nil
+        memoView.setNeedsDisplay()
+        memoView.layoutIfNeeded()
     }
     
     func titleRepresentation() {

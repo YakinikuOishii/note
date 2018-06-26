@@ -155,17 +155,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-8c-uZx" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-30" y="275" width="437" height="370"/>
+                                <rect key="frame" x="-21" y="311" width="437" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBR-H5-qnW">
-                                <rect key="frame" x="11" y="98" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="30"/>
-                                <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Mi-hZT">
                                 <rect key="frame" x="16" y="39" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -182,25 +175,50 @@
                                     <action selector="saveSchedules" destination="5Po-hg-CUB" eventType="touchUpInside" id="mdT-sm-3Jx"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-30" y="125" width="455" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-1H-GhS">
-                                <rect key="frame" x="11" y="245" width="49" height="30"/>
+                                <rect key="frame" x="11" y="281" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="30"/>
                                 <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxE-RZ-BwH">
+                                <rect key="frame" x="334" y="113" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="icon_blue.png"/>
+                                <connections>
+                                    <action selector="deleteTitle" destination="5Po-hg-CUB" eventType="touchUpInside" id="Etw-yX-VVy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TITLE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBR-H5-qnW">
+                                <rect key="frame" x="11" y="112" width="42" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="32"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="note" customModuleProvider="target">
+                                <rect key="frame" x="-30" y="154" width="455" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpz-CS-4UZ">
+                                <rect key="frame" x="334" y="281" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="icon_blue.png"/>
+                                <connections>
+                                    <action selector="deleteMemo" destination="5Po-hg-CUB" eventType="touchUpInside" id="W3D-zt-vux"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0w2-W9-VyW"/>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="aTZ-iN-b1M" id="0iS-xr-iDU"/>
+                        <outlet property="memoDeleteButton" destination="wpz-CS-4UZ" id="cEJ-cQ-9fL"/>
                         <outlet property="memoView" destination="jHI-8c-uZx" id="rVK-I8-h3k"/>
+                        <outlet property="titleDeleteButton" destination="TxE-RZ-BwH" id="jNU-Qg-Oh0"/>
                         <outlet property="titleView" destination="8yr-Xp-emb" id="51O-1R-jiY"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toViewController" id="EDh-f5-piW"/>
                     </connections>
@@ -233,6 +251,7 @@
         <image name="cancel.png" width="60" height="60"/>
         <image name="cellImg.png" width="375" height="93"/>
         <image name="checkMark.png" width="100" height="100"/>
+        <image name="icon_blue.png" width="100" height="100"/>
         <image name="navi.png" width="375" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
