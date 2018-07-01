@@ -54,11 +54,11 @@ class WriteSchedulesViewController: UIViewController {
             for i in dataSet {
                 tableArray.append(i.title!)
                 memoArray.append(i.memo!)
-                saveDate = i.date!
                 titleView.lastDrawImage = UIImage(data: tableArray[index])
                 memoView.lastDrawImage = UIImage(data: memoArray[index])
             }
         }else{
+            saveDate = appDelegate.selectedDate
             print("indexは空だよ")
         }
         
@@ -142,13 +142,12 @@ class WriteSchedulesViewController: UIViewController {
             content.body = "通知だよ"
             content.badge = 1
             content.sound = .default()
-            // 毎日21時に通知が来る
             let calendar = Calendar(identifier: .gregorian)
+            print(saveDate)
             let components = calendar.dateComponents([.year, .month, .day], from: saveDate)
 //            let date = DateComponents()
             let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
             let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-
             center.add(request)
             
             
