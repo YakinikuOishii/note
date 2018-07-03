@@ -23,6 +23,7 @@
 		5906BBA220BB00E3000C18C3 /* cellImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5906BBA120BB00E3000C18C3 /* cellImg.png */; };
 		5911A80120C69754007C13D3 /* penIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5911A80020C69754007C13D3 /* penIcon3.png */; };
 		594C794720E128FA00D8000E /* icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 594C794620E128FA00D8000E /* icon_blue.png */; };
+		59A6388C20EB91E6002EBB82 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A6388B20EB91E5002EBB82 /* menu.png */; };
 		59D2F7AC20AAE2EB00C3B2BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */; };
 		59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */; };
 		59D2F7B120AAE2EB00C3B2BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D2F7AF20AAE2EB00C3B2BC /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		5906BBA120BB00E3000C18C3 /* cellImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellImg.png; sourceTree = "<group>"; };
 		5911A80020C69754007C13D3 /* penIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penIcon3.png; sourceTree = "<group>"; };
 		594C794620E128FA00D8000E /* icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blue.png; sourceTree = "<group>"; };
+		59A6388B20EB91E5002EBB82 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		59D2F7A820AAE2EB00C3B2BC /* note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		5906BB8F20B2DCC9000C18C3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				59A6388B20EB91E5002EBB82 /* menu.png */,
 				594C794620E128FA00D8000E /* icon_blue.png */,
 				5911A80020C69754007C13D3 /* penIcon3.png */,
 				5906BBA120BB00E3000C18C3 /* cellImg.png */,
@@ -340,6 +343,7 @@
 				59D2F7B320AAE2EE00C3B2BC /* Assets.xcassets in Resources */,
 				5906BB9C20B2EFC7000C18C3 /* line.png in Resources */,
 				590698D420B1C187009F5350 /* checkMark.png in Resources */,
+				59A6388C20EB91E6002EBB82 /* menu.png in Resources */,
 				5906BB9620B2ECD0000C18C3 /* cancel.png in Resources */,
 				590698CE20B11597009F5350 /* button.png in Resources */,
 				59D2F7B120AAE2EB00C3B2BC /* Main.storyboard in Resources */,

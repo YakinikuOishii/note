@@ -76,7 +76,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @objc func buttonTapped(sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         let nextVC = storyboard.instantiateViewController(withIdentifier: "write") as! WriteSchedulesViewController
-//        nextVC.index = nil
         appDelegate.index = nil
         self.present(nextVC, animated: true, completion: nil)
     }
@@ -129,6 +128,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // カレンダー関連
     func setupCalendarView() {
+//        guard let validCell = view as? CustomCell else { return }
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         calendarView.backgroundColor = UIColor.clear
@@ -136,13 +136,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         calendarView.reloadData(withanchor: today)
         calendarView.visibleDates { (visibleDates) in
             self.setupViewsOfCalendarView(from: visibleDates)
-            }
+//            let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", visibleDates)
+//            print(dataSet)
+//            if dataSet.count >= 1 {
+//                validCell.markView.isHidden = false
+//            }else if dataSet.count == 0 {
+//                validCell.markView.isHidden = true
+//            }
+        }
     }
     
     func handleCellTextColor(view: JTAppleCell?,cellState: CellState) {
         guard let validCell = view as? CustomCell else {return}
         if cellState.isSelected {
-            validCell.dateLabel.textColor = UIColor.white
+            validCell.dateLabel.textColor = UIColor(red: 0.117, green: 0.654, blue: 0.945, alpha: 1.0)
         }else{
             if cellState.dateBelongsTo == .thisMonth {
                 validCell.dateLabel.textColor = UIColor.white
@@ -156,19 +163,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let validCell = view as? CustomCell else { return }
         if cellState.isSelected {
             validCell.selectedView.isHidden = false
-        }else {
+        }else{
             validCell.selectedView.isHidden = true
         }
     }
     
+    // 予定があった時のマーク
+//    func handleCellMarked(view: JTAppleCell?, cellState: CellState) {
+//        guard let validCell = view as? CustomCell else { return }
+//        let dataSet = realm.objects(realmDataSet.self).
+//        if dataSet.count >= 1 {
+//            validCell.markView.isHidden = false
+//        }else if dataSet.count == 0 {
+//            validCell.markView.isHidden = true
+//        }
+//    }
+    
+    
     func setupViewsOfCalendarView(from visibleDates: DateSegmentInfo) {
-            let date = visibleDates.monthDates.first!.date
+        let date = visibleDates.monthDates.first!.date
             
-            self.formatter.dateFormat = "yyyy"
-            self.yearLabel.text = self.formatter.string(from: date)
+        self.formatter.dateFormat = "yyyy"
+        self.yearLabel.text = self.formatter.string(from: date)
             
-            self.formatter.dateFormat = "MMM"
-            self.monthLabel.text = self.formatter.string(from: date)
+        self.formatter.dateFormat = "MMM"
+        self.monthLabel.text = self.formatter.string(from: date)
         
     }
 
@@ -193,44 +212,51 @@ extension ViewController: JTAppleCalendarViewDataSource {
         return parameters
     }
 }
+
+extension ViewController: JTAppleCalendarViewDelegate {
+    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
+            
+        cell.dateLabel.text  = cellState.text
+            
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
+        
+        let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", date)
+                    if dataSet.count >= 1 {
+                        cell.markView.isHidden = false
+                    }else if dataSet.count == 0 {
+                        cell.markView.isHidden = true
+                    }
+        
+        return cell
+    }
     
-    extension ViewController: JTAppleCalendarViewDelegate {
-        func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-            let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
-            
-            cell.dateLabel.text  = cellState.text
-            
-            handleCellSelected(view: cell, cellState: cellState)
-            handleCellTextColor(view: cell, cellState: cellState)
-            
-            return cell
-        }
+    //  選択した日付
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
+        selectedDate = date
+        print("date is")
+        print(date)
+        tableView.reloadData()
+        appDelegate.selectedDate = date
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        handleCellSelected(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
+    }
         
-        //  選択した日付
-        func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-            handleCellSelected(view: cell, cellState: cellState)
-            handleCellTextColor(view: cell, cellState: cellState)
-            selectedDate = date
-            print("date is")
-            print(date)
-            tableView.reloadData()
-            appDelegate.selectedDate = date
-        }
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        let date = visibleDates.monthDates.first!.date
         
-        func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-            handleCellSelected(view: cell, cellState: cellState)
-            handleCellTextColor(view: cell, cellState: cellState)
-        }
+        formatter.dateFormat = "yyyy"
+        yearLabel.text = formatter.string(from: date)
         
-        func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-            let date = visibleDates.monthDates.first!.date
-            
-            formatter.dateFormat = "yyyy"
-            yearLabel.text = formatter.string(from: date)
-            
-            formatter.dateFormat = "MMM"
-            monthLabel.text = formatter.string(from: date)
-            
-        }
+        formatter.dateFormat = "MMM"
+        monthLabel.text = formatter.string(from: date)
+        
+    }
     
 }

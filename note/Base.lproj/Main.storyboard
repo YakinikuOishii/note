@@ -72,9 +72,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-Vx-j2w">
+                                                    <rect key="frame" x="22.5" y="35.5" width="5" height="5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="M6W-1O-QxX"/>
+                                                        <constraint firstAttribute="width" constant="5" id="Mbs-P6-AXc"/>
+                                                        <constraint firstAttribute="height" constant="5" id="WVc-4g-5TB"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="3" id="tqa-UE-ion"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="2.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bss-C5-SKi">
                                                     <rect key="frame" x="10" y="10" width="30" height="30"/>
-                                                    <color key="backgroundColor" red="1" green="0.69411764705882351" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Ycv-SN-rFi"/>
                                                         <constraint firstAttribute="width" constant="30" id="uMB-Px-6pp"/>
@@ -85,9 +100,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEK-3v-bLO">
-                                                    <rect key="frame" x="13.5" y="16" width="23.5" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEK-3v-bLO">
+                                                    <rect key="frame" x="12" y="15" width="26" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="20"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -95,13 +110,17 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="bss-C5-SKi" firstAttribute="centerX" secondItem="252-Hb-XKz" secondAttribute="centerX" id="6Lz-iw-0jm"/>
+                                            <constraint firstItem="7V9-Vx-j2w" firstAttribute="centerX" secondItem="252-Hb-XKz" secondAttribute="centerX" id="Ce5-Ys-rFL"/>
                                             <constraint firstItem="bss-C5-SKi" firstAttribute="centerY" secondItem="252-Hb-XKz" secondAttribute="centerY" id="az3-Hf-mC0"/>
+                                            <constraint firstItem="bss-C5-SKi" firstAttribute="centerY" secondItem="252-Hb-XKz" secondAttribute="centerY" id="fje-jq-NVW"/>
                                             <constraint firstItem="gEK-3v-bLO" firstAttribute="centerX" secondItem="252-Hb-XKz" secondAttribute="centerX" id="h1B-iV-0Ni"/>
+                                            <constraint firstItem="bss-C5-SKi" firstAttribute="centerX" secondItem="252-Hb-XKz" secondAttribute="centerX" id="nVn-EB-tKg"/>
                                             <constraint firstItem="gEK-3v-bLO" firstAttribute="centerY" secondItem="252-Hb-XKz" secondAttribute="centerY" id="wvj-Lh-yJS"/>
                                         </constraints>
                                         <size key="customSize" width="50" height="50"/>
                                         <connections>
-                                            <outlet property="dateLabel" destination="gEK-3v-bLO" id="k4y-Qz-cDo"/>
+                                            <outlet property="dateLabel" destination="gEK-3v-bLO" id="7iU-US-kSa"/>
+                                            <outlet property="markView" destination="7V9-Vx-j2w" id="ryB-FG-76V"/>
                                             <outlet property="selectedView" destination="bss-C5-SKi" id="wdp-qp-Tai"/>
                                         </connections>
                                     </collectionViewCell>
@@ -129,7 +148,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j7G-Nu-RAc"/>
+                    <navigationItem key="navigationItem" id="j7G-Nu-RAc">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" style="plain" id="Ypw-qr-zcw">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="fpi-m8-k6m" id="SMh-AR-aor"/>
                         <outlet property="monthLabel" destination="crh-aQ-uhc" id="QBG-gs-rmn"/>
@@ -155,7 +178,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-8c-uZx" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-21" y="311" width="437" height="336"/>
+                                <rect key="frame" x="-21" y="316" width="437" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -197,11 +220,6 @@
                                 <color key="textColor" red="0.2627450980392157" green="0.49411764705882355" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="note" customModuleProvider="target">
-                                <rect key="frame" x="-30" y="154" width="455" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpz-CS-4UZ">
                                 <rect key="frame" x="334" y="281" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -210,6 +228,11 @@
                                     <action selector="deleteMemo" destination="5Po-hg-CUB" eventType="touchUpInside" id="W3D-zt-vux"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="note" customModuleProvider="target">
+                                <rect key="frame" x="-30" y="148" width="455" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0w2-W9-VyW"/>
@@ -232,6 +255,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sUe-jw-oAL" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="avY-gn-Qpk">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -252,9 +276,10 @@
         <image name="cellImg.png" width="375" height="93"/>
         <image name="checkMark.png" width="100" height="100"/>
         <image name="icon_blue.png" width="100" height="100"/>
+        <image name="menu.png" width="100" height="100"/>
         <image name="navi.png" width="375" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDh-f5-piW"/>
+        <segue reference="4fT-JL-YdZ"/>
     </inferredMetricsTieBreakers>
 </document>
