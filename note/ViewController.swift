@@ -9,6 +9,7 @@
 import UIKit
 import JTAppleCalendar
 import RealmSwift
+import SideMenu
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -16,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var tableView: UITableView!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
+    @IBOutlet var menuBarButton: UIBarButtonItem!
     
     let formatter = DateFormatter()
     var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -38,6 +40,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // ナビゲーションバー
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
+        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+
+//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+//        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+//        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
         // 曜日ラベル
         for i in 0...6 {
@@ -72,6 +79,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
     }
     
+    @IBAction func menu() {
+//        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+        performSegue(withIdentifier: "LeftMenuNavigationController", sender: nil)
+        // Similarly, to dismiss a menu programmatically, you would do this:
+//        dismiss(animated: true, completion: nil)
+    }
+    
     // 新規作成ボタンのイベント
     @objc func buttonTapped(sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
@@ -97,7 +111,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
             for i in dataSet {
                 titleArray.append(i.title! as Data)
-                print(titleArray)
             }
             cell.titleImageView.image = UIImage(data: titleArray[indexPath.row] as Data)
         }
@@ -107,7 +120,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
    // テーブルビューセルがタップされた時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.index = indexPath.row
-        print("セルがタップされたよ")
         performSegue(withIdentifier: "toWriteSchedules", sender: nil)
     }
     
@@ -128,7 +140,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // カレンダー関連
     func setupCalendarView() {
-//        guard let validCell = view as? CustomCell else { return }
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         calendarView.backgroundColor = UIColor.clear
@@ -136,13 +147,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         calendarView.reloadData(withanchor: today)
         calendarView.visibleDates { (visibleDates) in
             self.setupViewsOfCalendarView(from: visibleDates)
-//            let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", visibleDates)
-//            print(dataSet)
-//            if dataSet.count >= 1 {
-//                validCell.markView.isHidden = false
-//            }else if dataSet.count == 0 {
-//                validCell.markView.isHidden = true
-//            }
         }
     }
     
@@ -167,18 +171,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             validCell.selectedView.isHidden = true
         }
     }
-    
-    // 予定があった時のマーク
-//    func handleCellMarked(view: JTAppleCell?, cellState: CellState) {
-//        guard let validCell = view as? CustomCell else { return }
-//        let dataSet = realm.objects(realmDataSet.self).
-//        if dataSet.count >= 1 {
-//            validCell.markView.isHidden = false
-//        }else if dataSet.count == 0 {
-//            validCell.markView.isHidden = true
-//        }
-//    }
-    
     
     func setupViewsOfCalendarView(from visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
@@ -222,8 +214,13 @@ extension ViewController: JTAppleCalendarViewDelegate {
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         
+        if date == today {
+            cell.selectedView.isHidden = false
+        }
+        
         let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", date)
                     if dataSet.count >= 1 {
+                        print("呼ばれたよん")
                         cell.markView.isHidden = false
                     }else if dataSet.count == 0 {
                         cell.markView.isHidden = true
@@ -237,8 +234,6 @@ extension ViewController: JTAppleCalendarViewDelegate {
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         selectedDate = date
-        print("date is")
-        print(date)
         tableView.reloadData()
         appDelegate.selectedDate = date
     }

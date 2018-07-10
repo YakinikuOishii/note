@@ -64,7 +64,7 @@ class WriteSchedulesViewController: UIViewController {
         
         // 画像が表示されているかどうかで編集モードを切り替える
         if titleView.lastDrawImage != nil {
-            print("わーい")
+            print("編集")
             addButton.setImage(UIImage(named: "penIcon3.png"), for: UIControlState())
             
             // ビューに書き込めないようにする
@@ -77,7 +77,7 @@ class WriteSchedulesViewController: UIViewController {
             print("editModeのbool")
             print(editMode)
         }else{
-            print("えー")
+            print("新規")
         }
         
     }
@@ -85,8 +85,6 @@ class WriteSchedulesViewController: UIViewController {
     @IBAction func saveSchedules() {
         titleRepresentation()
         memoRepresentation()
-        print("saveSchedule")
-        print(editMode)
         
         if editMode == true {
             

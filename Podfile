@@ -6,6 +6,7 @@ target 'note' do
   use_frameworks!
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'RealmSwift'
+  pod 'SideMenu'
   # Pods for note
 
   target 'noteTests' do

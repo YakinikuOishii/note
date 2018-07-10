@@ -24,6 +24,7 @@
 		5911A80120C69754007C13D3 /* penIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5911A80020C69754007C13D3 /* penIcon3.png */; };
 		594C794720E128FA00D8000E /* icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 594C794620E128FA00D8000E /* icon_blue.png */; };
 		59A6388C20EB91E6002EBB82 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A6388B20EB91E5002EBB82 /* menu.png */; };
+		59A6388E20F4C88F002EBB82 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6388D20F4C88F002EBB82 /* MenuTableViewController.swift */; };
 		59D2F7AC20AAE2EB00C3B2BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */; };
 		59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */; };
 		59D2F7B120AAE2EB00C3B2BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D2F7AF20AAE2EB00C3B2BC /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		5911A80020C69754007C13D3 /* penIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penIcon3.png; sourceTree = "<group>"; };
 		594C794620E128FA00D8000E /* icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blue.png; sourceTree = "<group>"; };
 		59A6388B20EB91E5002EBB82 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		59A6388D20F4C88F002EBB82 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		59D2F7A820AAE2EB00C3B2BC /* note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				59D2F7DF20AAF78000C3B2BC /* CustomCell.swift */,
 				590698D720B1C91A009F5350 /* DrawView.swift */,
 				590698CF20B17762009F5350 /* WriteSchedulesViewController.swift */,
+				59A6388D20F4C88F002EBB82 /* MenuTableViewController.swift */,
 				59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */,
 				59D2F7AF20AAE2EB00C3B2BC /* Main.storyboard */,
 				59D2F7B220AAE2EE00C3B2BC /* Assets.xcassets */,
@@ -413,12 +416,14 @@
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -454,6 +459,7 @@
 				59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */,
 				590698D820B1C91A009F5350 /* DrawView.swift in Sources */,
 				59D2F7E020AAF78000C3B2BC /* CustomCell.swift in Sources */,
+				59A6388E20F4C88F002EBB82 /* MenuTableViewController.swift in Sources */,
 				59D2F7AC20AAE2EB00C3B2BC /* AppDelegate.swift in Sources */,
 				5906BBA020BAFF46000C18C3 /* TableViewCell.swift in Sources */,
 				590698D020B17762009F5350 /* WriteSchedulesViewController.swift in Sources */,
