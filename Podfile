@@ -9,6 +9,10 @@ target 'note' do
   pod 'SideMenu'
   # Pods for note
 
+target 'Today' do
+    inherit! :search_paths
+    end
+
   target 'noteTests' do
     inherit! :search_paths
     # Pods for testing

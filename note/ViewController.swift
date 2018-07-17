@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // ナビゲーションバー
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
-        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+//        SideMenuManager.default.menuPresentMode = .viewSlideInOut
 
 //        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
 //        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
@@ -77,11 +77,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         print("viewwill")
         tableView.reloadData()
+        calendarView.reloadData(withanchor: today)
     }
     
-    @IBAction func menu() {
+    @IBAction func toSetting() {
 //        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-        performSegue(withIdentifier: "LeftMenuNavigationController", sender: nil)
+        performSegue(withIdentifier: "toSettingViewController", sender: nil)
         // Similarly, to dismiss a menu programmatically, you would do this:
 //        dismiss(animated: true, completion: nil)
     }
@@ -135,6 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 realm.delete(deleteData)
             }
             self.tableView.reloadData()
+            calendarView.reloadData(withanchor: today)
         }
     }
     
@@ -220,7 +222,6 @@ extension ViewController: JTAppleCalendarViewDelegate {
         
         let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", date)
                     if dataSet.count >= 1 {
-                        print("呼ばれたよん")
                         cell.markView.isHidden = false
                     }else if dataSet.count == 0 {
                         cell.markView.isHidden = true

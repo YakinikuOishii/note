@@ -87,10 +87,6 @@ class WriteSchedulesViewController: UIViewController {
         memoRepresentation()
         
         if editMode == true {
-            
-            dataSet.date = selectedDate
-            dataSet.title = titleData! as Data
-            dataSet.memo = memoData! as Data
             save()
             dismiss(animated: true, completion: nil)
             
@@ -125,6 +121,20 @@ class WriteSchedulesViewController: UIViewController {
     }
     
     func save() {
+        
+        let dateWidget: UserDefaults! = UserDefaults(suiteName: "group.com.litech.note")
+        dateWidget.set(selectedDate, forKey: "date")
+        dateWidget.synchronize()
+        
+        let titleWidget: UserDefaults! = UserDefaults(suiteName: "group.com.litech.note")
+        titleWidget.set(titleData, forKey: "title")
+        titleWidget.synchronize()
+
+        
+        dataSet.date = selectedDate
+        dataSet.title = titleData! as Data
+        dataSet.memo = memoData! as Data
+        
         do {
             let realm = try! Realm()
             try realm.write {
@@ -141,19 +151,11 @@ class WriteSchedulesViewController: UIViewController {
             content.badge = 1
             content.sound = .default()
             let calendar = Calendar(identifier: .gregorian)
-            print(saveDate)
             let components = calendar.dateComponents([.year, .month, .day], from: saveDate)
-//            let date = DateComponents()
             let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
             let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
             center.add(request)
             
-            
-//            let saveDate = realm.objects(realmDataSet.self)
-//            for i in saveDate {
-//                appDelegate.dateArray.append(i.date!)
-//            }
-//            print(appDelegate.dateArray)
         } catch {
             
         }
