@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let formatter = DateFormatter()
     var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAD"]
+    var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAT"]
     var weekLabel: UILabel!
     
 //    var memoArray: [Data] = []
@@ -40,11 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // ナビゲーションバー
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
-//        SideMenuManager.default.menuPresentMode = .viewSlideInOut
-
-//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-//        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-//        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.menuPresentMode = .viewSlideInOut
         
         // 曜日ラベル
         for i in 0...6 {
@@ -80,11 +76,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         calendarView.reloadData(withanchor: today)
     }
     
-    @IBAction func toSetting() {
-//        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-        performSegue(withIdentifier: "toSettingViewController", sender: nil)
-        // Similarly, to dismiss a menu programmatically, you would do this:
-//        dismiss(animated: true, completion: nil)
+    @IBAction func sideMenu() {
+         performSegue(withIdentifier: "LeftMenuNavigationController", sender: nil)
     }
     
     // 新規作成ボタンのイベント
@@ -155,7 +148,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func handleCellTextColor(view: JTAppleCell?,cellState: CellState) {
         guard let validCell = view as? CustomCell else {return}
         if cellState.isSelected {
-            validCell.dateLabel.textColor = UIColor(red: 0.117, green: 0.654, blue: 0.945, alpha: 1.0)
+            validCell.dateLabel.textColor = UIColor.white
         }else{
             if cellState.dateBelongsTo == .thisMonth {
                 validCell.dateLabel.textColor = UIColor.white
