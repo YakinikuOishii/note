@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // ナビゲーションバー
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
         SideMenuManager.default.menuPresentMode = .viewSlideInOut
+        SideMenuManager.default.menuFadeStatusBar = false
         
         // 曜日ラベル
         for i in 0...6 {

@@ -22,6 +22,7 @@
 		5906BBA020BAFF46000C18C3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906BB9F20BAFF46000C18C3 /* TableViewCell.swift */; };
 		5906BBA220BB00E3000C18C3 /* cellImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5906BBA120BB00E3000C18C3 /* cellImg.png */; };
 		5911A80120C69754007C13D3 /* penIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5911A80020C69754007C13D3 /* penIcon3.png */; };
+		5914491A211E8FF90074D728 /* RootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59144919211E8FF90074D728 /* RootTableViewController.swift */; };
 		594C794720E128FA00D8000E /* icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 594C794620E128FA00D8000E /* icon_blue.png */; };
 		59A6388C20EB91E6002EBB82 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A6388B20EB91E5002EBB82 /* menu.png */; };
 		59A6389B20FDBC8E002EBB82 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A6389A20FDBC8E002EBB82 /* NotificationCenter.framework */; };
@@ -97,6 +98,7 @@
 		5906BB9F20BAFF46000C18C3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5906BBA120BB00E3000C18C3 /* cellImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellImg.png; sourceTree = "<group>"; };
 		5911A80020C69754007C13D3 /* penIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penIcon3.png; sourceTree = "<group>"; };
+		59144919211E8FF90074D728 /* RootTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTableViewController.swift; sourceTree = "<group>"; };
 		594C794620E128FA00D8000E /* icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blue.png; sourceTree = "<group>"; };
 		59A6388B20EB91E5002EBB82 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		59A6389920FDBC8E002EBB82 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 				59D2F7DF20AAF78000C3B2BC /* CustomCell.swift */,
 				590698D720B1C91A009F5350 /* DrawView.swift */,
 				590698CF20B17762009F5350 /* WriteSchedulesViewController.swift */,
+				59144919211E8FF90074D728 /* RootTableViewController.swift */,
 				59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */,
 				59D2F7AF20AAE2EB00C3B2BC /* Main.storyboard */,
 				59D2F7B220AAE2EE00C3B2BC /* Assets.xcassets */,
@@ -590,6 +593,7 @@
 				5906BB9E20B42F9B000C18C3 /* realmDataSet.swift in Sources */,
 				59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */,
 				590698D820B1C91A009F5350 /* DrawView.swift in Sources */,
+				5914491A211E8FF90074D728 /* RootTableViewController.swift in Sources */,
 				59D2F7E020AAF78000C3B2BC /* CustomCell.swift in Sources */,
 				59D2F7AC20AAE2EB00C3B2BC /* AppDelegate.swift in Sources */,
 				5906BBA020BAFF46000C18C3 /* TableViewCell.swift in Sources */,
