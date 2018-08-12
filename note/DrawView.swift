@@ -9,7 +9,7 @@
 import UIKit
 
 class DrawView: UIView {
-//    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     var penColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
     var penSize: CGFloat = 6.0
@@ -19,11 +19,11 @@ class DrawView: UIView {
     
     var editMode: Bool = true
     
-    override func draw(_ rect: CGRect) {
-        lastDrawImage?.draw(at: CGPoint.zero)
-        penColor.setStroke()
-        path?.stroke()
-    }
+//    override func draw(_ rect: CGRect) {
+//        lastDrawImage?.draw(at: CGPoint.zero)
+//        penColor.setStroke()
+//        path?.stroke()
+//    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -37,12 +37,6 @@ class DrawView: UIView {
         }else{
 
         }
-//        let currentPoint = touches.first!.location(in: self)
-//        path = UIBezierPath()
-//        path?.lineWidth = penSize
-//        path?.lineCapStyle = CGLineCap.round
-//        path?.lineJoinStyle = CGLineJoin.round
-//        path?.move(to: currentPoint)
         
     }
     
@@ -54,9 +48,7 @@ class DrawView: UIView {
         }else{
 
         }
-//        let currentPoint = touches.first!.location(in: self)
-//        path?.addLine(to: currentPoint)
-//        setNeedsDisplay()
+
 
         
     }
@@ -64,38 +56,31 @@ class DrawView: UIView {
         if editMode == true {
             let currentPoint = touches.first!.location(in: self)
             path.addLine(to: currentPoint)
-//            lastDrawImage = snapShot()
-            setNeedsDisplay()
+
         }else{
 
         }
-//        let currentPoint = touches.first!.location(in: self)
-//        path.addLine(to: currentPoint)
-//        lastDrawImage = snapShot()
-//        setNeedsDisplay()
         
+    }
+    
+    func drawLine(path: UIBezierPath) {
+        if lastDrawImage != nil {
+            lastDrawImage.draw(at: CGPoint.zero)
+        }
+        penColor.setStroke()
+        path.stroke()
     }
     
     func snapShot() -> UIImage {
         // スクリーンショットを取得
-//        let rect: CGRect = CGRect(x: 0, y: 125, width: 375, height: 105)
         UIGraphicsBeginImageContext(bounds.size)
         self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
         
-        
-//        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0.0)
-//        lastDrawImage?.draw(at: CGPoint.zero)
-//        penColor.setStroke()
-//        path?.stroke()
-        
-//        UIGraphicsEndImageContext()
     }
     
-//    func borderColor() {
-//        self.layer.borderColor = UIColor(red: 0.36, green: 0.36, blue: 0.36, alpha: 1.0) as! CGColor
-//    }
+
 
 }
