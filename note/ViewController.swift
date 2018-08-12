@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for i in 0...6 {
             weekLabel = UILabel()
             let float: CGFloat = CGFloat(i)
-            weekLabel.frame = CGRect(x: 375/7 * float,y: 115,width: 375/7,height: 50)
+            weekLabel.frame = CGRect(x: 375/7 * float,y: 100,width: 375/7,height: 50)
             weekLabel.backgroundColor = UIColor.clear
             weekLabel.textAlignment = .center
             weekLabel.text = weekArray[i]
@@ -77,9 +77,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         calendarView.reloadData(withanchor: today)
     }
     
-    @IBAction func sideMenu() {
-         performSegue(withIdentifier: "LeftMenuNavigationController", sender: nil)
-    }
+//    @IBAction func sideMenu() {
+//         performSegue(withIdentifier: "LeftMenuNavigationController", sender: nil)
+//    }
     
     // 新規作成ボタンのイベント
     @objc func buttonTapped(sender: Any) {
@@ -209,6 +209,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
             
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
+        
         
         if date == today {
             cell.selectedView.isHidden = false
