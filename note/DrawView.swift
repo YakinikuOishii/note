@@ -64,7 +64,7 @@ class DrawView: UIView {
         if editMode == true {
             let currentPoint = touches.first!.location(in: self)
             path.addLine(to: currentPoint)
-            lastDrawImage = snapShot()
+//            lastDrawImage = snapShot()
             setNeedsDisplay()
         }else{
 
