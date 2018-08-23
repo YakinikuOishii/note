@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         SideMenuManager.default.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuFadeStatusBar = false
         
+        
         // 曜日ラベル
         for i in 0...6 {
             weekLabel = UILabel()

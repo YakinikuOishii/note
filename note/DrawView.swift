@@ -19,12 +19,20 @@ class DrawView: UIView {
     
     var editMode: Bool = true
     
+    var canvas = UIImageView()
+    
 //    override func draw(_ rect: CGRect) {
 //        lastDrawImage?.draw(at: CGPoint.zero)
 //        penColor.setStroke()
 //        path?.stroke()
 //    }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        canvas.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        canvas.backgroundColor = .clear
+        self.addSubview(canvas)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if editMode == true {
@@ -44,18 +52,19 @@ class DrawView: UIView {
         if editMode == true {
             let currentPoint = touches.first!.location(in: self)
             path?.addLine(to: currentPoint)
-            setNeedsDisplay()
+            drawLine(path: path)
         }else{
 
         }
-
-
-        
     }
+    
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if editMode == true {
             let currentPoint = touches.first!.location(in: self)
             path.addLine(to: currentPoint)
+            drawLine(path: path)
+            lastDrawImage = canvas.image
 
         }else{
 
@@ -64,11 +73,14 @@ class DrawView: UIView {
     }
     
     func drawLine(path: UIBezierPath) {
+        UIGraphicsBeginImageContext(canvas.frame.size)
         if lastDrawImage != nil {
             lastDrawImage.draw(at: CGPoint.zero)
         }
         penColor.setStroke()
         path.stroke()
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
     }
     
     func snapShot() -> UIImage {
@@ -78,7 +90,6 @@ class DrawView: UIView {
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
-        
     }
     
 

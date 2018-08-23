@@ -54,8 +54,8 @@ class WriteSchedulesViewController: UIViewController {
             for i in dataSet {
                 tableArray.append(i.title!)
                 memoArray.append(i.memo!)
-                titleView.lastDrawImage = UIImage(data: tableArray[index])
-                memoView.lastDrawImage = UIImage(data: memoArray[index])
+                titleView.canvas.image = UIImage(data: tableArray[index])
+                memoView.canvas.image = UIImage(data: memoArray[index])
             }
         }else{
             saveDate = appDelegate.selectedDate
@@ -63,7 +63,7 @@ class WriteSchedulesViewController: UIViewController {
         }
         
         // 画像が表示されているかどうかで編集モードを切り替える
-        if titleView.lastDrawImage != nil {
+        if titleView.canvas.image != nil {
             print("編集")
             addButton.setImage(UIImage(named: "penIcon3.png"), for: UIControlState())
             
@@ -122,6 +122,8 @@ class WriteSchedulesViewController: UIViewController {
     
     func save() {
         
+        // canvas.imageに代入する
+        
         let dateWidget: UserDefaults! = UserDefaults(suiteName: "group.com.litech.note")
         dateWidget.set(selectedDate, forKey: "date")
         dateWidget.synchronize()
@@ -165,7 +167,7 @@ class WriteSchedulesViewController: UIViewController {
     @IBAction func deleteTitle() {
 //        titleView.removeFromSuperview()
 //        titleView.lastDrawImage = UIImage(named: "cellImg")
-        titleView.lastDrawImage = nil
+        titleView.canvas.image = nil
         titleView.path = nil
         titleView.setNeedsDisplay()
         // viewを更新
@@ -175,7 +177,7 @@ class WriteSchedulesViewController: UIViewController {
     @IBAction func deleteMemo() {
 //        memoView.removeFromSuperview()
 //        memoView.lastDrawImage = UIImage(named: "cellImg")
-        memoView.lastDrawImage = nil
+        memoView.canvas.image = nil
         memoView.path = nil
         memoView.setNeedsDisplay()
         memoView.layoutIfNeeded()

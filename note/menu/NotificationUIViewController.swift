@@ -11,9 +11,11 @@ import UIKit
 class NotificationUIViewController: UIViewController {
     
     let borderColor = UIColor(red: 0.207, green: 0.207, blue: 0.207, alpha: 1.0)
+    let tintColor = UIColor(red: 0.313, green: 0.662, blue: 0.945, alpha: 1.0)
     
     @IBOutlet var notificationView: UIView!
     @IBOutlet var timeView: UIView!
+    @IBOutlet var uiSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class NotificationUIViewController: UIViewController {
         timeView.layer.borderColor = borderColor.cgColor
         notificationView.layer.borderWidth = 1.0
         timeView.layer.borderWidth = 1.0
+        
+        uiSwitch.onTintColor = tintColor
 
         // Do any additional setup after loading the view.
     }
