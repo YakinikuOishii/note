@@ -11,6 +11,8 @@ import UIKit
 class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
+    
+    let colorNameArray: [String] = ["アクアマリン","エメラルド","琥珀","","",""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,26 +26,13 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
+       return 6
     }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if section == 0 {
-//            return 0
-//        }else if section == 1 {
-//            return 50
-//        }else{
-//            return 0
-//        }
-//    }
-    
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        view.tintColor = UIColor.clear // 透明にすることでスペースとする
-//    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")

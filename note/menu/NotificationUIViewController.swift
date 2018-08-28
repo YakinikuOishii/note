@@ -20,10 +20,33 @@ class NotificationUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        notificationView.layer.borderColor = borderColor.cgColor
-        timeView.layer.borderColor = borderColor.cgColor
-        notificationView.layer.borderWidth = 1.0
-        timeView.layer.borderWidth = 1.0
+//        notificationView.layer.borderColor = borderColor.cgColor
+//        timeView.layer.borderColor = borderColor.cgColor
+//        notificationView.layer.borderWidth = 1.0
+//        timeView.layer.borderWidth = 1.0
+//
+        let topBorderN = CALayer()
+        topBorderN.frame = CGRect(x: 0, y: 0, width: notificationView.frame.width, height: 1.0)
+        topBorderN.backgroundColor = UIColor.lightGray.cgColor
+        notificationView.layer.addSublayer(topBorderN)
+
+        let topBorderT = CALayer()
+        topBorderT.frame = CGRect(x: 0, y: 0, width: timeView.frame.width, height: 1.0)
+        topBorderT.backgroundColor = UIColor.lightGray.cgColor
+        timeView.layer.addSublayer(topBorderT)
+
+        let underBorderN = CALayer()
+        underBorderN.frame = CGRect(x: 0, y: self.notificationView.frame.height - underBorderN.frame.height, width: notificationView.frame.width, height: 1.0)
+        underBorderN.backgroundColor = UIColor.lightGray.cgColor
+        notificationView.layer.addSublayer(underBorderN)
+        
+        let underBorderT = CALayer()
+        underBorderT.frame = CGRect(x: 0, y: self.timeView.frame.height - underBorderT.frame.height, width: timeView.frame.width, height: 1.0)
+        underBorderT.backgroundColor = UIColor.lightGray.cgColor
+        timeView.layer.addSublayer(underBorderT)
+        
+        
+        
         
         uiSwitch.onTintColor = tintColor
 

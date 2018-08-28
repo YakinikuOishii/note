@@ -42,13 +42,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
         SideMenuManager.default.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuAlwaysAnimate = true
         
         
         // 曜日ラベル
         for i in 0...6 {
             weekLabel = UILabel()
             let float: CGFloat = CGFloat(i)
-            weekLabel.frame = CGRect(x: 375/7 * float,y: 100,width: 375/7,height: 50)
+            weekLabel.frame = CGRect(x: 375/7 * float,y: 108,width: 375/7,height: 50)
             weekLabel.backgroundColor = UIColor.clear
             weekLabel.textAlignment = .center
             weekLabel.text = weekArray[i]
@@ -126,7 +127,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            let deleteData = realm.objects(realmDataSet.self)[indexPath.row]
+            let deleteData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)[indexPath.row]
             try! realm.write {
                 realm.delete(deleteData)
             }

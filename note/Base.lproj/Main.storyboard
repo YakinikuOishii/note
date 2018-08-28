@@ -32,13 +32,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crh-aQ-uhc">
-                                <rect key="frame" x="150" y="20" width="75" height="39.5"/>
+                                <rect key="frame" x="150" y="20" width="75" height="60"/>
                                 <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="45"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8O4-qS-tM6">
-                                <rect key="frame" x="118.5" y="30.5" width="31.5" height="18"/>
+                                <rect key="frame" x="118.5" y="41" width="31.5" height="18"/>
                                 <fontDescription key="fontDescription" name="InterUI-Medium" family="Inter UI" pointSize="15"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                             <constraint firstItem="crh-aQ-uhc" firstAttribute="leading" secondItem="8O4-qS-tM6" secondAttribute="trailing" id="d2G-yq-Z1g"/>
                             <constraint firstItem="0v0-fm-Vdb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eXg-XP-1ff"/>
                             <constraint firstItem="crh-aQ-uhc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f2s-HL-FkO"/>
-                            <constraint firstItem="crh-aQ-uhc" firstAttribute="height" secondItem="0v0-fm-Vdb" secondAttribute="height" multiplier="0.1" id="g7F-mZ-d9g"/>
+                            <constraint firstItem="crh-aQ-uhc" firstAttribute="height" secondItem="0v0-fm-Vdb" secondAttribute="height" multiplier="0.15" id="g7F-mZ-d9g"/>
                             <constraint firstItem="NJw-mA-dPF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gLU-DO-UnH"/>
                             <constraint firstItem="0v0-fm-Vdb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kkN-jz-DWX"/>
                             <constraint firstItem="crh-aQ-uhc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="oW3-Cn-2ax"/>
@@ -317,10 +317,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="NOTE" id="bNd-Ar-tC7"/>
                     <connections>
-                        <segue destination="q3Q-j7-ds1" kind="show" identifier="toHelp" id="eJ8-98-4ag"/>
-                        <segue destination="ChJ-s3-Xnf" kind="show" identifier="toNotification" id="VxE-20-dzo"/>
-                        <segue destination="hpx-pg-lOh" kind="show" identifier="toThemeColor" id="Sof-fG-vTH"/>
-                        <segue destination="irP-Ff-iEH" kind="show" identifier="toHowTo" id="cLP-nL-tD5"/>
+                        <segue destination="q3Q-j7-ds1" kind="show" identifier="toHelp" animates="NO" id="eJ8-98-4ag"/>
+                        <segue destination="ChJ-s3-Xnf" kind="show" identifier="toNotification" animates="NO" id="VxE-20-dzo"/>
+                        <segue destination="hpx-pg-lOh" kind="show" identifier="toThemeColor" animates="NO" id="Sof-fG-vTH"/>
+                        <segue destination="irP-Ff-iEH" kind="show" identifier="toHowTo" animates="NO" id="cLP-nL-tD5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N17-5z-jlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,15 +416,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GGE-o4-fOx">
-                                <rect key="frame" x="0.0" y="141" width="375" height="454"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cEk-73-LUv">
+                                <rect key="frame" x="0.0" y="127" width="375" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="IE2-oP-lWU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ezl-EE-09S">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IE2-oP-lWU" id="sbs-rB-xNO">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ezl-EE-09S" id="sai-q1-RaK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -436,12 +436,12 @@
                         <viewLayoutGuide key="safeArea" id="TvY-er-duJ"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="GGE-o4-fOx" id="oxM-96-REk"/>
+                        <outlet property="tableView" destination="cEk-73-LUv" id="THF-e4-r4P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTr-xb-UZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008.6956521739131" y="1736.413043478261"/>
+            <point key="canvasLocation" x="1007.2" y="1735.6821589205399"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tc7-7c-YSv">
@@ -516,7 +516,7 @@
         <image name="navi.png" width="375" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Huj-i8-xJO"/>
+        <segue reference="cLP-nL-tD5"/>
         <segue reference="EDh-f5-piW"/>
     </inferredMetricsTieBreakers>
 </document>
