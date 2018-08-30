@@ -32,13 +32,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crh-aQ-uhc">
-                                <rect key="frame" x="150" y="20" width="75" height="60"/>
+                                <rect key="frame" x="150" y="64" width="75" height="60"/>
                                 <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="45"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8O4-qS-tM6">
-                                <rect key="frame" x="118.5" y="41" width="31.5" height="18"/>
+                                <rect key="frame" x="118.5" y="85" width="31.5" height="18"/>
                                 <fontDescription key="fontDescription" name="InterUI-Medium" family="Inter UI" pointSize="15"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -162,9 +162,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j7G-Nu-RAc">
+                    <navigationItem key="navigationItem" title="SPEEDAY" id="j7G-Nu-RAc">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" style="plain" id="Ypw-qr-zcw">
-                            <inset key="imageInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-40" minY="-5" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="menu" destination="BYZ-38-t0r" id="Kse-Qt-jtQ"/>
@@ -292,7 +292,7 @@
             </objects>
             <point key="canvasLocation" x="242" y="134"/>
         </scene>
-        <!--NOTE-->
+        <!--SPEEDAY-->
         <scene sceneID="WPx-CF-a3m">
             <objects>
                 <tableViewController id="bRZ-rK-Jou" customClass="RootTableViewController" customModule="note" customModuleProvider="target" sceneMemberID="viewController">
@@ -315,19 +315,20 @@
                             <outlet property="delegate" destination="bRZ-rK-Jou" id="bfJ-hb-e7K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NOTE" id="bNd-Ar-tC7"/>
+                    <navigationItem key="navigationItem" title="SPEEDAY" id="bNd-Ar-tC7"/>
                     <connections>
                         <segue destination="q3Q-j7-ds1" kind="show" identifier="toHelp" animates="NO" id="eJ8-98-4ag"/>
                         <segue destination="ChJ-s3-Xnf" kind="show" identifier="toNotification" animates="NO" id="VxE-20-dzo"/>
                         <segue destination="hpx-pg-lOh" kind="show" identifier="toThemeColor" animates="NO" id="Sof-fG-vTH"/>
                         <segue destination="irP-Ff-iEH" kind="show" identifier="toHowTo" animates="NO" id="cLP-nL-tD5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toHome" animates="NO" id="Qsb-y5-eLs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N17-5z-jlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008.8" y="918.89055472263874"/>
         </scene>
-        <!--NotificationUI View Controller-->
+        <!--通知設定-->
         <scene sceneID="37L-Pm-8BO">
             <objects>
                 <viewController id="ChJ-s3-Xnf" customClass="NotificationUIViewController" customModule="note" customModuleProvider="target" sceneMemberID="viewController">
@@ -379,6 +380,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ONG-C5-NlL"/>
                     </view>
+                    <navigationItem key="navigationItem" title="通知設定" id="ekw-og-HJD">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="7zQ-FY-IpG">
+                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="GSD-Cy-n6J" kind="presentation" id="hdU-bq-UV1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="notificationView" destination="Lza-u4-xke" id="slG-e2-CQs"/>
                         <outlet property="timeView" destination="et7-52-bG7" id="eYb-rq-yhv"/>
@@ -408,7 +418,7 @@
             </objects>
             <point key="canvasLocation" x="241" y="919"/>
         </scene>
-        <!--Theme Color View Controller-->
+        <!--テーマカラー-->
         <scene sceneID="aZx-SS-V64">
             <objects>
                 <viewController id="hpx-pg-lOh" customClass="ThemeColorViewController" customModule="note" customModuleProvider="target" sceneMemberID="viewController">
@@ -417,15 +427,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cEk-73-LUv">
-                                <rect key="frame" x="0.0" y="127" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ezl-EE-09S">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="Ezl-EE-09S">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ezl-EE-09S" id="sai-q1-RaK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -435,6 +445,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TvY-er-duJ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="テーマカラー" id="1uT-in-4HZ">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="0sU-Oh-i4s">
+                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="GSD-Cy-n6J" kind="presentation" id="WKX-Se-XsA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cEk-73-LUv" id="THF-e4-r4P"/>
                     </connections>
@@ -443,7 +462,7 @@
             </objects>
             <point key="canvasLocation" x="1007.2" y="1735.6821589205399"/>
         </scene>
-        <!--View Controller-->
+        <!--使い方-->
         <scene sceneID="tc7-7c-YSv">
             <objects>
                 <viewController id="irP-Ff-iEH" sceneMemberID="viewController">
@@ -462,12 +481,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Cvc-jP-6sT"/>
                     </view>
+                    <navigationItem key="navigationItem" title="使い方" id="4gv-Ex-UfR">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="5PK-xu-0np">
+                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="GSD-Cy-n6J" kind="presentation" id="EMd-nI-jXL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIY-Lp-TJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1798" y="1737"/>
         </scene>
-        <!--Help View Controller-->
+        <!--ヘルプ-->
         <scene sceneID="oei-Tp-9XS">
             <objects>
                 <viewController id="q3Q-j7-ds1" customClass="HelpViewController" customModule="note" customModuleProvider="target" sceneMemberID="viewController">
@@ -494,6 +522,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mei-ek-L3g"/>
                     </view>
+                    <navigationItem key="navigationItem" title="ヘルプ" id="f9q-g6-88E">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="rR0-3v-G6j">
+                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="GSD-Cy-n6J" kind="presentation" id="T6s-Um-gyD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xyM-As-fd1" id="FlP-kz-re2"/>
                         <segue destination="irP-Ff-iEH" kind="presentation" identifier="toHowTo" id="Huj-i8-xJO"/>
@@ -517,6 +554,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cLP-nL-tD5"/>
-        <segue reference="EDh-f5-piW"/>
+        <segue reference="T6s-Um-gyD"/>
+        <segue reference="4fT-JL-YdZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,10 +12,13 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBOutlet var tableView: UITableView!
     
-    let colorNameArray: [String] = ["アクアマリン","エメラルド","琥珀","","",""]
+    let colorNameArray: [String] = ["青空","緑葉","琥珀","唐紅","花桃","紫雲","銀河"]
+    let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -26,17 +29,28 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return colorNameArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30 // セルの上部のスペース
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 6
+       return 1
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = "test"
+        cell?.textLabel?.text = colorNameArray[indexPath.section]
+        cell?.textLabel?.textColor = UIColor.white
+        
+        let cellImage = UIImageView()
+        cellImage.image = UIImage(named: bgColorArray[indexPath.section])
+        cellImage.contentMode = .scaleToFill
+        cell?.backgroundView = cellImage
+//        cell?.imageView?.image = UIImage(named: bgColorArray[indexPath.section])
         return cell!
     }
     
@@ -46,16 +60,18 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         cell?.accessoryType = .checkmark
     }
 
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        // チェックマークを外す
+        cell?.accessoryType = .none
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at:indexPath)
-        // チェックマークを外す
-        cell?.accessoryType = .none
-    }
+    
     
 
     /*

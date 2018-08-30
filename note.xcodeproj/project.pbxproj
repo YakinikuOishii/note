@@ -29,6 +29,13 @@
 		59144922211FC4B20074D728 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59144921211FC4B20074D728 /* HelpViewController.swift */; };
 		593E7DC521201A60005F403B /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E7DC421201A60005F403B /* ThemeColorViewController.swift */; };
 		594C794720E128FA00D8000E /* icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 594C794620E128FA00D8000E /* icon_blue.png */; };
+		598EFA352137877000BF493B /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA2E2137876E00BF493B /* blue.png */; };
+		598EFA362137877000BF493B /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA2F2137876E00BF493B /* purple.png */; };
+		598EFA372137877000BF493B /* pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA302137876E00BF493B /* pink.png */; };
+		598EFA382137877000BF493B /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA312137876F00BF493B /* red.png */; };
+		598EFA392137877000BF493B /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA322137876F00BF493B /* black.png */; };
+		598EFA3A2137877000BF493B /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA332137877000BF493B /* orange.png */; };
+		598EFA3B2137877000BF493B /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA342137877000BF493B /* green.png */; };
 		59A6388C20EB91E6002EBB82 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A6388B20EB91E5002EBB82 /* menu.png */; };
 		59A6389B20FDBC8E002EBB82 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A6389A20FDBC8E002EBB82 /* NotificationCenter.framework */; };
 		59A6389E20FDBC8E002EBB82 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6389D20FDBC8E002EBB82 /* TodayViewController.swift */; };
@@ -110,6 +117,13 @@
 		59144921211FC4B20074D728 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		593E7DC421201A60005F403B /* ThemeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
 		594C794620E128FA00D8000E /* icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blue.png; sourceTree = "<group>"; };
+		598EFA2E2137876E00BF493B /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		598EFA2F2137876E00BF493B /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
+		598EFA302137876E00BF493B /* pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink.png; sourceTree = "<group>"; };
+		598EFA312137876F00BF493B /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		598EFA322137876F00BF493B /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
+		598EFA332137877000BF493B /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
+		598EFA342137877000BF493B /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		59A6388B20EB91E5002EBB82 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		59A6389920FDBC8E002EBB82 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A6389A20FDBC8E002EBB82 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -185,6 +199,13 @@
 		5906BB8F20B2DCC9000C18C3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				598EFA322137876F00BF493B /* black.png */,
+				598EFA2E2137876E00BF493B /* blue.png */,
+				598EFA342137877000BF493B /* green.png */,
+				598EFA332137877000BF493B /* orange.png */,
+				598EFA302137876E00BF493B /* pink.png */,
+				598EFA2F2137876E00BF493B /* purple.png */,
+				598EFA312137876F00BF493B /* red.png */,
 				5914491F211F36840074D728 /* clock.png */,
 				5914491D211F2DC80074D728 /* bell.png */,
 				59A6388B20EB91E5002EBB82 /* menu.png */,
@@ -467,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				594C794720E128FA00D8000E /* icon_blue.png in Resources */,
+				598EFA372137877000BF493B /* pink.png in Resources */,
 				5906BB9820B2ECD8000C18C3 /* bg.png in Resources */,
 				59144920211F36840074D728 /* clock.png in Resources */,
 				5906BB9A20B2EE0E000C18C3 /* navi.png in Resources */,
@@ -477,10 +499,16 @@
 				59D2F7B620AAE2EE00C3B2BC /* LaunchScreen.storyboard in Resources */,
 				59D2F7B320AAE2EE00C3B2BC /* Assets.xcassets in Resources */,
 				5906BB9C20B2EFC7000C18C3 /* line.png in Resources */,
+				598EFA352137877000BF493B /* blue.png in Resources */,
 				5914491E211F2DC90074D728 /* bell.png in Resources */,
+				598EFA362137877000BF493B /* purple.png in Resources */,
 				590698D420B1C187009F5350 /* checkMark.png in Resources */,
 				59A6388C20EB91E6002EBB82 /* menu.png in Resources */,
 				5906BB9620B2ECD0000C18C3 /* cancel.png in Resources */,
+				598EFA382137877000BF493B /* red.png in Resources */,
+				598EFA392137877000BF493B /* black.png in Resources */,
+				598EFA3A2137877000BF493B /* orange.png in Resources */,
+				598EFA3B2137877000BF493B /* green.png in Resources */,
 				590698CE20B11597009F5350 /* button.png in Resources */,
 				59D2F7B120AAE2EB00C3B2BC /* Main.storyboard in Resources */,
 			);

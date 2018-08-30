@@ -13,7 +13,7 @@ class RootTableViewController: UITableViewController{
     let settingArray: [String] = ["通知","テーマカラー"]
     let otherArray: [String] = ["ヘルプ","使い方","レビュー"]
     
-    let sectionArray: [String] = ["設定","その他"]
+    let sectionArray: [String] = ["","設定","その他"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class RootTableViewController: UITableViewController{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -38,27 +38,38 @@ class RootTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return settingArray.count
+            return 1
         }else if section == 1 {
+            return settingArray.count
+            
+        }else if section == 2{
             return otherArray.count
         }else{
             return 0
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
         if indexPath.section == 0 {
-            cell.textLabel?.text = settingArray[indexPath.row]
+            cell.textLabel?.text = "ホーム"
         }else if indexPath.section == 1 {
+            cell.textLabel?.text = settingArray[indexPath.row]
+        }else if indexPath.section == 2 {
             cell.textLabel?.text = otherArray[indexPath.row]
         }
         return cell
+        
     }
     
 //     セルがタップされた時のメソッド
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section == 0 {
+            performSegue(withIdentifier: "toHome", sender: nil)
+        }else if indexPath.section == 1 {
             
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "toNotification", sender: nil)
@@ -68,7 +79,7 @@ class RootTableViewController: UITableViewController{
                 
             }
             
-        }else if indexPath.section == 1 {
+        }else if indexPath.section == 2 {
             
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "toHelp", sender: nil)
@@ -80,6 +91,8 @@ class RootTableViewController: UITableViewController{
                 
             }
         }
+        
+        
     }
 
     /*

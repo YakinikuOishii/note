@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class NotificationUIViewController: UIViewController {
     
@@ -20,21 +21,33 @@ class NotificationUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        notificationView.layer.borderColor = borderColor.cgColor
-//        timeView.layer.borderColor = borderColor.cgColor
-//        notificationView.layer.borderWidth = 1.0
-//        timeView.layer.borderWidth = 1.0
-//
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
+        
+        writeBorder()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
+        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuAlwaysAnimate = true
+        
+        uiSwitch.onTintColor = tintColor
+
+        // Do any additional setup after loading the view.
+    }
+    
+    func writeBorder() {
+        
         let topBorderN = CALayer()
         topBorderN.frame = CGRect(x: 0, y: 0, width: notificationView.frame.width, height: 1.0)
         topBorderN.backgroundColor = UIColor.lightGray.cgColor
         notificationView.layer.addSublayer(topBorderN)
-
+        
         let topBorderT = CALayer()
         topBorderT.frame = CGRect(x: 0, y: 0, width: timeView.frame.width, height: 1.0)
         topBorderT.backgroundColor = UIColor.lightGray.cgColor
         timeView.layer.addSublayer(topBorderT)
-
+        
         let underBorderN = CALayer()
         underBorderN.frame = CGRect(x: 0, y: self.notificationView.frame.height - underBorderN.frame.height, width: notificationView.frame.width, height: 1.0)
         underBorderN.backgroundColor = UIColor.lightGray.cgColor
@@ -45,12 +58,6 @@ class NotificationUIViewController: UIViewController {
         underBorderT.backgroundColor = UIColor.lightGray.cgColor
         timeView.layer.addSublayer(underBorderT)
         
-        
-        
-        
-        uiSwitch.onTintColor = tintColor
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
