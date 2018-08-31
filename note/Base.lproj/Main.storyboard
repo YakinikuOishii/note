@@ -28,8 +28,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="0v0-fm-Vdb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blueBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="0v0-fm-Vdb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="336"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ar8-7g-sOg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crh-aQ-uhc">
                                 <rect key="frame" x="150" y="64" width="75" height="60"/>
@@ -173,6 +177,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bgImageView" destination="0v0-fm-Vdb" id="XZo-i1-KFN"/>
                         <outlet property="calendarView" destination="fpi-m8-k6m" id="SMh-AR-aor"/>
                         <outlet property="menuBarButton" destination="Ypw-qr-zcw" id="IK7-cu-sld"/>
                         <outlet property="monthLabel" destination="crh-aQ-uhc" id="QBG-gs-rmn"/>
@@ -382,7 +387,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="通知設定" id="ekw-og-HJD">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="7zQ-FY-IpG">
-                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="GSD-Cy-n6J" kind="presentation" id="hdU-bq-UV1"/>
@@ -418,7 +423,7 @@
             </objects>
             <point key="canvasLocation" x="241" y="919"/>
         </scene>
-        <!--テーマカラー-->
+        <!--テーマカラー　　-->
         <scene sceneID="aZx-SS-V64">
             <objects>
                 <viewController id="hpx-pg-lOh" customClass="ThemeColorViewController" customModule="note" customModuleProvider="target" sceneMemberID="viewController">
@@ -445,9 +450,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TvY-er-duJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="テーマカラー" id="1uT-in-4HZ">
+                    <navigationItem key="navigationItem" title="テーマカラー　　" id="1uT-in-4HZ">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="0sU-Oh-i4s">
-                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="GSD-Cy-n6J" kind="presentation" id="WKX-Se-XsA"/>
@@ -483,7 +488,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="使い方" id="4gv-Ex-UfR">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="5PK-xu-0np">
-                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="GSD-Cy-n6J" kind="presentation" id="EMd-nI-jXL"/>
@@ -524,7 +529,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="ヘルプ" id="f9q-g6-88E">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="rR0-3v-G6j">
-                            <inset key="imageInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-40" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="GSD-Cy-n6J" kind="presentation" id="T6s-Um-gyD"/>
@@ -533,7 +538,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xyM-As-fd1" id="FlP-kz-re2"/>
-                        <segue destination="irP-Ff-iEH" kind="presentation" identifier="toHowTo" id="Huj-i8-xJO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipg-s7-22D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -543,18 +547,18 @@
     </scenes>
     <resources>
         <image name="bell.png" width="100" height="100"/>
-        <image name="bg.png" width="375" height="415"/>
+        <image name="blueBG.png" width="375" height="415"/>
         <image name="cancel.png" width="60" height="60"/>
         <image name="cellImg.png" width="375" height="93"/>
         <image name="checkMark.png" width="100" height="100"/>
         <image name="clock.png" width="100" height="100"/>
         <image name="icon_blue.png" width="100" height="100"/>
+        <image name="line.png" width="375" height="1"/>
         <image name="menu.png" width="100" height="100"/>
         <image name="navi.png" width="375" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cLP-nL-tD5"/>
-        <segue reference="T6s-Um-gyD"/>
+        <segue reference="WKX-Se-XsA"/>
         <segue reference="4fT-JL-YdZ"/>
     </inferredMetricsTieBreakers>
 </document>

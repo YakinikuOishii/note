@@ -16,8 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedDate: Date!
     var image: UIImage!
     var index: Int!
+    var colorIndex: Int! = 0
     
     var dateArray: [Date] = []
+    
+    let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // アプリ起動時に呼ばれる

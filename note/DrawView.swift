@@ -15,7 +15,7 @@ class DrawView: UIView {
     var penSize: CGFloat = 6.0
     
     var path: UIBezierPath!
-    var lastDrawImage: UIImage!
+    var lastDrawImage: UIImage?
     
     var editMode: Bool = true
     
@@ -75,7 +75,7 @@ class DrawView: UIView {
     func drawLine(path: UIBezierPath) {
         UIGraphicsBeginImageContext(canvas.frame.size)
         if lastDrawImage != nil {
-            lastDrawImage.draw(at: CGPoint.zero)
+            lastDrawImage?.draw(at: CGPoint.zero)
         }
         penColor.setStroke()
         path.stroke()

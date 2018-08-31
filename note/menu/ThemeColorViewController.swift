@@ -14,11 +14,19 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     
     let colorNameArray: [String] = ["青空","緑葉","琥珀","唐紅","花桃","紫雲","銀河"]
     let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
+    
+    let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
+        
+        for i in 0...6 {
+            if appdelegate.colorIndex == i {
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appdelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
+            }
+        }
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -57,13 +65,26 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     // テーブルビューセルがタップされた時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.accessoryType = .checkmark
+//        print(colorNameArray[indexPath.section])
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+        
+        for i in 0...6 {
+            if indexPath.section == i {
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: bgColorArray[i]), for: .topAttached, barMetrics: .default)
+                appdelegate.colorIndex = i
+            }else{
+                
+            }
+        }
+//        cell?.accessoryType = .checkmark
     }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         // チェックマークを外す
-        cell?.accessoryType = .none
+//        cell?.accessoryType = .none
     }
 
     override func didReceiveMemoryWarning() {

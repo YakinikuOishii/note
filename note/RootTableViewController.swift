@@ -86,7 +86,7 @@ class RootTableViewController: UITableViewController{
             }else if indexPath.row == 1 {
                 performSegue(withIdentifier: "toHowTo", sender: nil)
             }else if indexPath.row == 2 {
-                
+                // リリース後にApp Storeのページへ遷移
             }else{
                 
             }

@@ -168,6 +168,7 @@ class WriteSchedulesViewController: UIViewController {
 //        titleView.removeFromSuperview()
 //        titleView.lastDrawImage = UIImage(named: "cellImg")
         titleView.canvas.image = nil
+        titleView.lastDrawImage = nil
         titleView.path = nil
         titleView.setNeedsDisplay()
         // viewを更新
@@ -178,6 +179,7 @@ class WriteSchedulesViewController: UIViewController {
 //        memoView.removeFromSuperview()
 //        memoView.lastDrawImage = UIImage(named: "cellImg")
         memoView.canvas.image = nil
+        memoView.lastDrawImage = nil
         memoView.path = nil
         memoView.setNeedsDisplay()
         memoView.layoutIfNeeded()

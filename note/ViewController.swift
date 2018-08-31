@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
     @IBOutlet var menuBarButton: UIBarButtonItem!
+    @IBOutlet var bgImageView: UIImageView!
     
     let formatter = DateFormatter()
     var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -39,13 +40,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
 
         // ナビゲーションバー
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navi"), for: .topAttached, barMetrics: .default)
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 35)!]
-//        self.navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: "Dense", size: 30)!]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Dense", size: 35)!]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         SideMenuManager.default.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuAlwaysAnimate = true
         
+        // 予定追加するボタン
+        let addSchedulesButton = UIButton()
+        addSchedulesButton.frame = CGRect(x: 255, y: 540,width: 100, height: 100)
+        
+        for i in 0...6 {
+            if appDelegate.colorIndex == i {
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
+                bgImageView.image = UIImage(named: appDelegate.bgColorArray[i] + "BG")
+                addSchedulesButton.setImage(UIImage(named: appDelegate.bgColorArray[i] + "Button"), for: UIControlState())
+            }
+        }
         
         // 曜日ラベル
         for i in 0...6 {
@@ -59,11 +72,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             weekLabel.font = UIFont(name: "Dense", size: 23)
             self.view.addSubview(weekLabel)
         }
+      
         
-        // 予定追加するボタン
-        let addSchedulesButton = UIButton()
-        addSchedulesButton.frame = CGRect(x: 255, y: 540,width: 100, height: 100)
-        addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())
+//        addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())
         addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
         self.view.addSubview(addSchedulesButton)
         

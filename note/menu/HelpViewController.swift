@@ -11,11 +11,18 @@ import UIKit
 class HelpViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
+    
+    let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
+        for i in 0...6 {
+            if appdelegate.colorIndex == i {
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appdelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
+            }
+        }
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
