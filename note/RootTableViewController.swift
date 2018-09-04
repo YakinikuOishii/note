@@ -10,7 +10,7 @@ import UIKit
 
 class RootTableViewController: UITableViewController{
     
-    let settingArray: [String] = ["通知","テーマカラー"]
+    let settingArray: [String] = ["通知","テーマ"]
     let otherArray: [String] = ["ヘルプ","使い方","レビュー"]
     
     let sectionArray: [String] = ["","設定","その他"]

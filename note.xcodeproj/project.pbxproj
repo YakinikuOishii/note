@@ -28,6 +28,7 @@
 		59144922211FC4B20074D728 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59144921211FC4B20074D728 /* HelpViewController.swift */; };
 		593E7DC521201A60005F403B /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E7DC421201A60005F403B /* ThemeColorViewController.swift */; };
 		594C794720E128FA00D8000E /* icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 594C794620E128FA00D8000E /* icon_blue.png */; };
+		59557D38213E8F7C005728F1 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59557D37213E8F7C005728F1 /* TimePickerViewController.swift */; };
 		598EFA362137877000BF493B /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA2F2137876E00BF493B /* purple.png */; };
 		598EFA372137877000BF493B /* pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA302137876E00BF493B /* pink.png */; };
 		598EFA382137877000BF493B /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA312137876F00BF493B /* red.png */; };
@@ -51,6 +52,8 @@
 		598EFA612139376500BF493B /* redBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA5A2139376500BF493B /* redBG.png */; };
 		598EFA6321393C7400BF493B /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA6221393C7400BF493B /* line.png */; };
 		598EFA672139485800BF493B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA662139485800BF493B /* icon.png */; };
+		598EFA6A21396B5F00BF493B /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA6821396B5E00BF493B /* Circle.png */; };
+		598EFA6B21396B5F00BF493B /* Circle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA6921396B5F00BF493B /* Circle2.png */; };
 		59A6388C20EB91E6002EBB82 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A6388B20EB91E5002EBB82 /* menu.png */; };
 		59A6389B20FDBC8E002EBB82 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A6389A20FDBC8E002EBB82 /* NotificationCenter.framework */; };
 		59A6389E20FDBC8E002EBB82 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6389D20FDBC8E002EBB82 /* TodayViewController.swift */; };
@@ -131,6 +134,7 @@
 		59144921211FC4B20074D728 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		593E7DC421201A60005F403B /* ThemeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
 		594C794620E128FA00D8000E /* icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blue.png; sourceTree = "<group>"; };
+		59557D37213E8F7C005728F1 /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		598EFA2F2137876E00BF493B /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
 		598EFA302137876E00BF493B /* pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink.png; sourceTree = "<group>"; };
 		598EFA312137876F00BF493B /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		598EFA5A2139376500BF493B /* redBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redBG.png; sourceTree = "<group>"; };
 		598EFA6221393C7400BF493B /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = "../../../../haikei/note素材/line.png"; sourceTree = "<group>"; };
 		598EFA662139485800BF493B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = "../../../../haikei/note素材/icon.png"; sourceTree = "<group>"; };
+		598EFA6821396B5E00BF493B /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
+		598EFA6921396B5F00BF493B /* Circle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle2.png; sourceTree = "<group>"; };
 		59A6388B20EB91E5002EBB82 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		59A6389920FDBC8E002EBB82 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A6389A20FDBC8E002EBB82 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -164,7 +170,7 @@
 		59A638AA20FDE247002EBB82 /* note.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = note.entitlements; sourceTree = "<group>"; };
 		59A638AB20FDE253002EBB82 /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Today.entitlements; sourceTree = "<group>"; };
 		59A638AC20FDF5DF002EBB82 /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
-		59D2F7A820AAE2EB00C3B2BC /* note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D2F7A820AAE2EB00C3B2BC /* Speeday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speeday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59D2F7B020AAE2EB00C3B2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -230,6 +236,8 @@
 		5906BB8F20B2DCC9000C18C3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				598EFA6821396B5E00BF493B /* Circle.png */,
+				598EFA6921396B5F00BF493B /* Circle2.png */,
 				598EFA662139485800BF493B /* icon.png */,
 				598EFA6221393C7400BF493B /* line.png */,
 				598EFA532139374D00BF493B /* backgroundImg */,
@@ -257,6 +265,7 @@
 				5914491B211ECBEB0074D728 /* NotificationUIViewController.swift */,
 				59144921211FC4B20074D728 /* HelpViewController.swift */,
 				593E7DC421201A60005F403B /* ThemeColorViewController.swift */,
+				59557D37213E8F7C005728F1 /* TimePickerViewController.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -331,7 +340,7 @@
 		59D2F7A920AAE2EB00C3B2BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				59D2F7A820AAE2EB00C3B2BC /* note.app */,
+				59D2F7A820AAE2EB00C3B2BC /* Speeday.app */,
 				59D2F7BC20AAE2EE00C3B2BC /* noteTests.xctest */,
 				59D2F7C720AAE2EE00C3B2BC /* noteUITests.xctest */,
 				59A6389920FDBC8E002EBB82 /* Today.appex */,
@@ -447,7 +456,7 @@
 			);
 			name = note;
 			productName = note;
-			productReference = 59D2F7A820AAE2EB00C3B2BC /* note.app */;
+			productReference = 59D2F7A820AAE2EB00C3B2BC /* Speeday.app */;
 			productType = "com.apple.product-type.application";
 		};
 		59D2F7BB20AAE2EE00C3B2BC /* noteTests */ = {
@@ -587,8 +596,10 @@
 				598EFA672139485800BF493B /* icon.png in Resources */,
 				598EFA5D2139376500BF493B /* blackBG.png in Resources */,
 				598EFA4A2138E68800BF493B /* redButton.png in Resources */,
+				598EFA6B21396B5F00BF493B /* Circle2.png in Resources */,
 				598EFA482138E68800BF493B /* orangeButton.png in Resources */,
 				598EFA392137877000BF493B /* black.png in Resources */,
+				598EFA6A21396B5F00BF493B /* Circle.png in Resources */,
 				598EFA4E2138E68800BF493B /* pinkButton.png in Resources */,
 				598EFA6321393C7400BF493B /* line.png in Resources */,
 				598EFA5E2139376500BF493B /* pinkBG.png in Resources */,
@@ -730,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				593E7DC521201A60005F403B /* ThemeColorViewController.swift in Sources */,
+				59557D38213E8F7C005728F1 /* TimePickerViewController.swift in Sources */,
 				5914491C211ECBEB0074D728 /* NotificationUIViewController.swift in Sources */,
 				5906BB9E20B42F9B000C18C3 /* realmDataSet.swift in Sources */,
 				59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */,
@@ -978,7 +990,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.note;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Speeday;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -999,7 +1011,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.note;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Speeday;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

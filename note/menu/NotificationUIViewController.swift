@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class NotificationUIViewController: UIViewController {
+class NotificationUIViewController: UIViewController{
     
     let borderColor = UIColor(red: 0.207, green: 0.207, blue: 0.207, alpha: 1.0)
     let blue = UIColor(red: 0.313, green: 0.662, blue: 0.945, alpha: 1.0)
@@ -22,9 +22,13 @@ class NotificationUIViewController: UIViewController {
     
     let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     
+//    let dataList :[String] = ["00:00","06:00","12:00","15:00","20:00"]
+    
     @IBOutlet var notificationView: UIView!
     @IBOutlet var timeView: UIView!
     @IBOutlet var uiSwitch: UISwitch!
+//    @IBOutlet var label: UILabel!
+//    @IBOutlet var pickerView: UIPickerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,35 @@ class NotificationUIViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    // UIPickerViewの列の数
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    // UIPickerViewの行数、リストの数
+//    func pickerView(_ pickerView: UIPickerView,
+//                    numberOfRowsInComponent component: Int) -> Int {
+//        return dataList.count
+//    }
+//
+//    // UIPickerViewの最初の表示
+//    func pickerView(_ pickerView: UIPickerView,
+//                    titleForRow row: Int,
+//                    forComponent component: Int) -> String? {
+//
+//        return dataList[row]
+//    }
+//
+//    // UIPickerViewのRowが選択された時の挙動
+//    func pickerView(_ pickerView: UIPickerView,
+//                    didSelectRow row: Int,
+//                    inComponent component: Int) {
+//
+//
+////        label.text = dataList[row]
+//
+//    }
     
     func writeBorder() {
         

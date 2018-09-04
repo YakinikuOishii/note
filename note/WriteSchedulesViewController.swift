@@ -26,6 +26,7 @@ class WriteSchedulesViewController: UIViewController {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var titleDeleteButton: UIButton!
     @IBOutlet var memoDeleteButton: UIButton!
+    @IBOutlet var imageView: UIImageView!
     
     var titleData: NSData!
     var memoData: NSData!
@@ -38,6 +39,13 @@ class WriteSchedulesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in 0...6 {
+            if appDelegate.colorIndex == i {
+                imageView.image = UIImage(named: appDelegate.bgColorArray[i])
+            }
+        }
+        
         selectedDate = appDelegate.selectedDate
         titleView.layer.borderColor = borderColor.cgColor
         memoView.layer.borderColor = borderColor.cgColor
@@ -51,6 +59,7 @@ class WriteSchedulesViewController: UIViewController {
         var memoArray: [Data] = []
         if index != nil {
             print("indexは空じゃないよ")
+            print(index)
             for i in dataSet {
                 tableArray.append(i.title!)
                 memoArray.append(i.memo!)
