@@ -38,8 +38,7 @@ class TimePickerViewController: UIViewController ,UIPickerViewDelegate, UIPicker
                                 "20",
                                 "21",
                                 "22",
-                                "23",
-                                "24",]
+                                "23"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

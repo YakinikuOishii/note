@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var image: UIImage!
     var index: Int!
     var colorIndex: Int! = 0
-    
+    var tomorrowBool: Bool = true
     var dateArray: [Date] = []
-    
     let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
+    var timeTitleArray: [String] = ["前日19時","前日20時","前日21時","前日22時","前日23時","当日0時","当日5時","当日6時","当日7時","当日8時","当日9時","当日10時"]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // アプリ起動時に呼ばれる

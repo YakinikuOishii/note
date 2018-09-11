@@ -26,9 +26,9 @@
 		5914491E211F2DC90074D728 /* bell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5914491D211F2DC80074D728 /* bell.png */; };
 		59144920211F36840074D728 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5914491F211F36840074D728 /* clock.png */; };
 		59144922211FC4B20074D728 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59144921211FC4B20074D728 /* HelpViewController.swift */; };
+		593103C42147C87B00ACCA8F /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593103C32147C87B00ACCA8F /* TimeSettingViewController.swift */; };
 		593E7DC521201A60005F403B /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E7DC421201A60005F403B /* ThemeColorViewController.swift */; };
 		594C794720E128FA00D8000E /* icon_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 594C794620E128FA00D8000E /* icon_blue.png */; };
-		59557D38213E8F7C005728F1 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59557D37213E8F7C005728F1 /* TimePickerViewController.swift */; };
 		598EFA362137877000BF493B /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA2F2137876E00BF493B /* purple.png */; };
 		598EFA372137877000BF493B /* pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA302137876E00BF493B /* pink.png */; };
 		598EFA382137877000BF493B /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA312137876F00BF493B /* red.png */; };
@@ -132,9 +132,9 @@
 		5914491D211F2DC80074D728 /* bell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bell.png; sourceTree = "<group>"; };
 		5914491F211F36840074D728 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		59144921211FC4B20074D728 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		593103C32147C87B00ACCA8F /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
 		593E7DC421201A60005F403B /* ThemeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
 		594C794620E128FA00D8000E /* icon_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blue.png; sourceTree = "<group>"; };
-		59557D37213E8F7C005728F1 /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		598EFA2F2137876E00BF493B /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
 		598EFA302137876E00BF493B /* pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink.png; sourceTree = "<group>"; };
 		598EFA312137876F00BF493B /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 				5914491B211ECBEB0074D728 /* NotificationUIViewController.swift */,
 				59144921211FC4B20074D728 /* HelpViewController.swift */,
 				593E7DC421201A60005F403B /* ThemeColorViewController.swift */,
-				59557D37213E8F7C005728F1 /* TimePickerViewController.swift */,
+				593103C32147C87B00ACCA8F /* TimeSettingViewController.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -741,7 +741,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				593E7DC521201A60005F403B /* ThemeColorViewController.swift in Sources */,
-				59557D38213E8F7C005728F1 /* TimePickerViewController.swift in Sources */,
 				5914491C211ECBEB0074D728 /* NotificationUIViewController.swift in Sources */,
 				5906BB9E20B42F9B000C18C3 /* realmDataSet.swift in Sources */,
 				59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */,
@@ -752,6 +751,7 @@
 				5906BBA020BAFF46000C18C3 /* TableViewCell.swift in Sources */,
 				590698D020B17762009F5350 /* WriteSchedulesViewController.swift in Sources */,
 				59144922211FC4B20074D728 /* HelpViewController.swift in Sources */,
+				593103C42147C87B00ACCA8F /* TimeSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

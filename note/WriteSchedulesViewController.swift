@@ -16,6 +16,7 @@ class WriteSchedulesViewController: UIViewController {
     let drawView = DrawView()
     let realm = try! Realm()
     let dataSet = realmDataSet()
+    let saveTime = UserDefaults.standard
     
     var selectedDate: Date!
     var saveDate: Date!
@@ -80,11 +81,6 @@ class WriteSchedulesViewController: UIViewController {
             editMode = false
             titleView.editMode = false
             memoView.editMode = false
-            print("viewdid")
-            print("titleviewのbool")
-            print(titleView.editMode)
-            print("editModeのbool")
-            print(editMode)
         }else{
             print("新規")
         }
@@ -162,10 +158,32 @@ class WriteSchedulesViewController: UIViewController {
             content.badge = 1
             content.sound = .default()
             let calendar = Calendar(identifier: .gregorian)
-            let components = calendar.dateComponents([.year, .month, .day], from: saveDate)
-            let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
-            let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-            center.add(request)
+//            var components = calendar.dateComponents([.month, .day, .hour, .minute], from: saveDate)
+            var yesterday = DateComponents()
+            yesterday.day = -1
+            if appDelegate.tomorrowBool == true {
+                // カレンダー上でマイナス1日してくれる
+                let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
+                var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
+                tomorrowComponents.hour = saveTime.object(forKey: appDelegate.timeTitleArray) as? Int
+                let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
+                let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+                center.add(request)
+//                components.day = components.day! - 1
+            }else{
+                var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
+                components.hour = saveTime.object(forKey: "saveTime") as? Int
+                let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
+                let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+                center.add(request)
+            }
+            
+            
+            
+//            let components = DateComponents(day: 1, hour:8, minute:30)
+//            let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
+//            let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+//            center.add(request)
             
         } catch {
             
