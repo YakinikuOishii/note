@@ -48,6 +48,7 @@ class WriteSchedulesViewController: UIViewController {
         }
         
         selectedDate = appDelegate.selectedDate
+        saveTime.object(forKey: "saveTime")
         titleView.layer.borderColor = borderColor.cgColor
         memoView.layer.borderColor = borderColor.cgColor
         titleView.layer.borderWidth = 1.5
@@ -165,16 +166,26 @@ class WriteSchedulesViewController: UIViewController {
                 // カレンダー上でマイナス1日してくれる
                 let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
                 var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
-                tomorrowComponents.hour = saveTime.object(forKey: appDelegate.timeTitleArray) as? Int
+                if saveTime != nil {
+                    tomorrowComponents.hour = saveTime.object(forKey: "saveTime") as? Int
+                }else{
+                    tomorrowComponents.hour = 6
+                }
+                
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+                print(tomorrowComponents.hour as Any)
                 center.add(request)
-//                components.day = components.day! - 1
             }else{
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
-                components.hour = saveTime.object(forKey: "saveTime") as? Int
+                if saveTime != nil! {
+                    components.hour = saveTime.object(forKey: "saveTime") as? Int
+                }else{
+                    components.hour = 6
+                }
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+                print(components.hour as Any)
                 center.add(request)
             }
             

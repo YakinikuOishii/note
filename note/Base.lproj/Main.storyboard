@@ -23,7 +23,7 @@
         <!--Ib Calendar Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="252-Hb-XKz" customClass="CustomCell" customModule="Speeday" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="252-Hb-XKz" customClass="CustomCell" customModule="SPEEDAY" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -118,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="400" width="375" height="267"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="FXb-W7-ac1" customClass="TableViewCell" customModule="Speeday" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="FXb-W7-ac1" customClass="TableViewCell" customModule="SPEEDAY" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FXb-W7-ac1" id="ejv-sc-6xh">
@@ -178,7 +178,7 @@
                         <outlet property="monthLabel" destination="crh-aQ-uhc" id="QBG-gs-rmn"/>
                         <outlet property="tableView" destination="NJw-mA-dPF" id="v4n-ho-1bP"/>
                         <outlet property="yearLabel" destination="8O4-qS-tM6" id="sRc-ZY-WbI"/>
-                        <segue destination="5Po-hg-CUB" kind="presentation" identifier="toWriteSchedules" id="NAr-Tn-9yU"/>
+                        <segue destination="5Po-hg-CUB" kind="presentation" identifier="toWriteSchedules" id="3mG-hE-0dl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -188,28 +188,20 @@
         <!--Write Schedules View Controller-->
         <scene sceneID="IIa-uL-CpZ">
             <objects>
-                <viewController storyboardIdentifier="write" id="5Po-hg-CUB" customClass="WriteSchedulesViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="write" id="5Po-hg-CUB" customClass="WriteSchedulesViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mlv-GD-AcL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="kJY-MQ-NS6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-8c-uZx" customClass="DrawView" customModule="Speeday" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-8c-uZx" customClass="DrawView" customModule="SPEEDAY" customModuleProvider="target">
                                 <rect key="frame" x="-21" y="316" width="437" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Mi-hZT">
-                                <rect key="frame" x="16" y="39" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="cancel.png"/>
-                                <connections>
-                                    <action selector="cancel" destination="5Po-hg-CUB" eventType="touchUpInside" id="La7-GK-p8S"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0c-1H-GhS">
                                 <rect key="frame" x="11" y="281" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -240,23 +232,32 @@
                                     <action selector="deleteMemo" destination="5Po-hg-CUB" eventType="touchUpInside" id="W3D-zt-vux"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="Speeday" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-Xp-emb" customClass="DrawView" customModule="SPEEDAY" customModuleProvider="target">
                                 <rect key="frame" x="-30" y="148" width="455" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTZ-iN-b1M">
-                                <rect key="frame" x="335" y="37" width="25" height="25"/>
+                                <rect key="frame" x="337" y="27" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="checkMark.png"/>
                                 <connections>
                                     <action selector="saveSchedules" destination="5Po-hg-CUB" eventType="touchUpInside" id="mdT-sm-3Jx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Mi-hZT">
+                                <rect key="frame" x="11" y="29" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="cancel.png"/>
+                                <connections>
+                                    <action selector="cancel" destination="5Po-hg-CUB" eventType="touchUpInside" id="La7-GK-p8S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0w2-W9-VyW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="l0E-tz-9Sg"/>
                     <connections>
                         <outlet property="addButton" destination="aTZ-iN-b1M" id="0iS-xr-iDU"/>
                         <outlet property="imageView" destination="kJY-MQ-NS6" id="Ng2-5I-C3I"/>
@@ -269,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xH-Zf-WIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797.1014492753625" y="132.88043478260872"/>
+            <point key="canvasLocation" x="1878" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WIu-ct-81O">
@@ -296,7 +297,7 @@
         <!--SPEEDAY-->
         <scene sceneID="WPx-CF-a3m">
             <objects>
-                <tableViewController id="bRZ-rK-Jou" customClass="RootTableViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bRZ-rK-Jou" customClass="RootTableViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CR2-QS-Xpf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,7 +333,7 @@
         <!--通知時間-->
         <scene sceneID="Xms-VB-OUV">
             <objects>
-                <viewController id="gD1-UL-MYA" customClass="TimeSettingViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gD1-UL-MYA" customClass="TimeSettingViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tjB-2Z-hxK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,14 +360,21 @@
                     <navigationItem key="navigationItem" title="通知時間" id="p0r-HT-7qN">
                         <barButtonItem key="leftBarButtonItem" title="キャンセル" id="5oo-9K-j04">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="back" destination="gD1-UL-MYA" id="jIr-ld-Ozh"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="eN1-jX-20m">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="save" destination="gD1-UL-MYA" id="LK7-uo-zlp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="5oo-9K-j04" id="hxM-t1-u5g"/>
+                        <outlet property="saveButton" destination="eN1-jX-20m" id="Io0-Pd-6Wc"/>
                         <outlet property="tableView" destination="nT9-Yt-8iJ" id="8jc-6c-2zP"/>
-                        <segue destination="ChJ-s3-Xnf" kind="presentation" id="iAs-cS-zgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEy-7I-vZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,7 +384,7 @@
         <!--通知設定-->
         <scene sceneID="37L-Pm-8BO">
             <objects>
-                <viewController id="ChJ-s3-Xnf" customClass="NotificationUIViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ChJ-s3-Xnf" customClass="NotificationUIViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZGt-7c-KNh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -480,7 +488,7 @@
         <!--テーマ-->
         <scene sceneID="aZx-SS-V64">
             <objects>
-                <viewController id="hpx-pg-lOh" customClass="ThemeColorViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hpx-pg-lOh" customClass="ThemeColorViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sY6-2F-sd5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -548,7 +556,7 @@
         <!--ヘルプ-->
         <scene sceneID="oei-Tp-9XS">
             <objects>
-                <viewController id="q3Q-j7-ds1" customClass="HelpViewController" customModule="Speeday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q3Q-j7-ds1" customClass="HelpViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FmI-91-MfW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -628,7 +636,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hdU-bq-UV1"/>
-        <segue reference="iAs-cS-zgB"/>
-        <segue reference="4fT-JL-YdZ"/>
+        <segue reference="Qsb-y5-eLs"/>
     </inferredMetricsTieBreakers>
 </document>

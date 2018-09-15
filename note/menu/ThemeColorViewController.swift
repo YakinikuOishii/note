@@ -78,14 +78,13 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
                 
             }
         }
-//        cell?.accessoryType = .checkmark
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+
     }
 
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        // チェックマークを外す
-//        cell?.accessoryType = .none
-    }
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

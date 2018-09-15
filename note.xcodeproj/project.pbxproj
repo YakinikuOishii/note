@@ -170,7 +170,7 @@
 		59A638AA20FDE247002EBB82 /* note.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = note.entitlements; sourceTree = "<group>"; };
 		59A638AB20FDE253002EBB82 /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Today.entitlements; sourceTree = "<group>"; };
 		59A638AC20FDF5DF002EBB82 /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
-		59D2F7A820AAE2EB00C3B2BC /* Speeday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speeday.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D2F7A820AAE2EB00C3B2BC /* SPEEDAY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPEEDAY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D2F7AB20AAE2EB00C3B2BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D2F7AD20AAE2EB00C3B2BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59D2F7B020AAE2EB00C3B2BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 		59D2F7A920AAE2EB00C3B2BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				59D2F7A820AAE2EB00C3B2BC /* Speeday.app */,
+				59D2F7A820AAE2EB00C3B2BC /* SPEEDAY.app */,
 				59D2F7BC20AAE2EE00C3B2BC /* noteTests.xctest */,
 				59D2F7C720AAE2EE00C3B2BC /* noteUITests.xctest */,
 				59A6389920FDBC8E002EBB82 /* Today.appex */,
@@ -456,7 +456,7 @@
 			);
 			name = note;
 			productName = note;
-			productReference = 59D2F7A820AAE2EB00C3B2BC /* Speeday.app */;
+			productReference = 59D2F7A820AAE2EB00C3B2BC /* SPEEDAY.app */;
 			productType = "com.apple.product-type.application";
 		};
 		59D2F7BB20AAE2EE00C3B2BC /* noteTests */ = {
@@ -990,7 +990,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.note;
-				PRODUCT_NAME = Speeday;
+				PRODUCT_NAME = SPEEDAY;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1011,7 +1011,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.note;
-				PRODUCT_NAME = Speeday;
+				PRODUCT_NAME = SPEEDAY;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
