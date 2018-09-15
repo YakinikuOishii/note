@@ -12,7 +12,7 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     
     @IBOutlet var tableView: UITableView!
     
-    let colorNameArray: [String] = ["青空","緑葉","琥珀","唐紅","花桃","紫雲","銀河"]
+    let colorNameArray: [String] = ["ブルー","グリーン","オレンジ","レッド","ピンク","パープル","ネイビー"]
     let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
     
     let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
@@ -58,7 +58,6 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         cellImage.image = UIImage(named: bgColorArray[indexPath.section])
         cellImage.contentMode = .scaleToFill
         cell?.backgroundView = cellImage
-//        cell?.imageView?.image = UIImage(named: bgColorArray[indexPath.section])
         return cell!
     }
     

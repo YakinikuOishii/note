@@ -48,7 +48,9 @@ class WriteSchedulesViewController: UIViewController {
         }
         
         selectedDate = appDelegate.selectedDate
+        
         saveTime.object(forKey: "saveTime")
+        
         titleView.layer.borderColor = borderColor.cgColor
         memoView.layer.borderColor = borderColor.cgColor
         titleView.layer.borderWidth = 1.5
@@ -162,12 +164,14 @@ class WriteSchedulesViewController: UIViewController {
 //            var components = calendar.dateComponents([.month, .day, .hour, .minute], from: saveDate)
             var yesterday = DateComponents()
             yesterday.day = -1
+            let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
             if appDelegate.tomorrowBool == true {
+                
                 // カレンダー上でマイナス1日してくれる
                 let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
                 var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
-                if saveTime != nil {
-                    tomorrowComponents.hour = saveTime.object(forKey: "saveTime") as? Int
+                if hour != nil {
+                    tomorrowComponents.hour = hour
                 }else{
                     tomorrowComponents.hour = 6
                 }
@@ -178,8 +182,8 @@ class WriteSchedulesViewController: UIViewController {
                 center.add(request)
             }else{
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
-                if saveTime != nil! {
-                    components.hour = saveTime.object(forKey: "saveTime") as? Int
+                if hour != nil {
+                    components.hour = hour
                 }else{
                     components.hour = 6
                 }

@@ -22,14 +22,23 @@ class NotificationUIViewController: UIViewController{
     
     let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     
-//    let dataList :[String] = ["00:00","06:00","12:00","15:00","20:00"]
-    
     @IBOutlet var notificationView: UIView!
     @IBOutlet var timeView: UIView!
     @IBOutlet var uiSwitch: UISwitch!
-//    @IBOutlet var label: UILabel!
-//    @IBOutlet var pickerView: UIPickerView!
-
+    @IBOutlet var label: UILabel!
+    
+    var saveName = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let name: String! = saveName.object(forKey: "saveName") as? String
+        
+        if name != nil {
+            label.text = name
+        }else{
+            label.text = "前日20時"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,8 +51,8 @@ class NotificationUIViewController: UIViewController{
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
         
         writeBorder()
-        
         tintColor()
+        
         uiSwitch.addTarget(self, action: #selector(NotificationUIViewController.switchClick(sender:)), for: UIControlEvents.valueChanged)
 
         // Do any additional setup after loading the view.

@@ -16,12 +16,15 @@ class TimeSettingViewController: UIViewController,UITableViewDataSource,UITableV
     
     let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     
-    var timeTitleArray: [String] = ["前日19時","前日20時","前日21時","前日22時","前日23時","当日0時","当日5時","当日6時","当日7時","当日8時","当日9時","当日10時"]
+    var timeNameArray: [String] = ["前日19時","前日20時","前日21時","前日22時","前日23時","当日0時","当日5時","当日6時","当日7時","当日8時","当日9時","当日10時"]
     var timeArray: [Int] = [19,20,21,22,23,0,5,6,7,8,9,10]
     
     var selectedTime: Int!
+    var selectedName: String!
     
     var saveTime = UserDefaults.standard
+    var saveName = UserDefaults.standard
+
     
 
     override func viewDidLoad() {
@@ -44,41 +47,39 @@ class TimeSettingViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeTitleArray.count
+        return timeNameArray.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableView.cellForRow(at: indexPath)
         selectedTime = timeArray[indexPath.row]
+        selectedName = timeNameArray[indexPath.row]
         print(indexPath.row)
         cell?.accessoryType = .checkmark
-        
-        //        tableView.reloadData()
     }
     //
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableView.cellForRow(at: indexPath)
         // チェックマークを外す
         cell?.accessoryType = .none
-        //        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = timeTitleArray[indexPath.row]
+        cell?.textLabel?.text = timeNameArray[indexPath.row]
         if indexPath.row >= 5 {
             appdelegate.tomorrowBool = false
         }else{
             appdelegate.tomorrowBool = true
         }
-        
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
         return cell!
     }
     
     @IBAction func save() {
         saveTime.set(selectedTime, forKey: "saveTime")
-        dismiss(animated: true, completion: nil)
+        saveName.set(selectedName, forKey: "saveName")
+        dismiss(animated: true, completion:nil)
     }
     
     @IBAction func back() {
