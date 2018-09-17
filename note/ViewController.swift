@@ -61,17 +61,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         // 曜日ラベル
-        for i in 0...6 {
-            weekLabel = UILabel()
-            let float: CGFloat = CGFloat(i)
-            weekLabel.frame = CGRect(x: 375/7 * float,y: 108,width: 375/7,height: 50)
-            weekLabel.backgroundColor = UIColor.clear
-            weekLabel.textAlignment = .center
-            weekLabel.text = weekArray[i]
-            weekLabel.textColor = UIColor.white
-            weekLabel.font = UIFont(name: "Dense", size: 23)
-            self.view.addSubview(weekLabel)
-        }
+//        for i in 0...6 {
+//            weekLabel = UILabel()
+//            let float: CGFloat = CGFloat(i)
+//            weekLabel.frame = CGRect(x: 375/7 * float,y: 108,width: 375/7,height: 50)
+//            weekLabel.backgroundColor = UIColor.clear
+//            weekLabel.textAlignment = .center
+//            weekLabel.text = weekArray[i]
+//            weekLabel.textColor = UIColor.white
+//            weekLabel.font = UIFont(name: "Dense", size: 23)
+//            self.view.addSubview(weekLabel)
+//        }
       
         
 //        addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())

@@ -29,6 +29,9 @@ class WriteSchedulesViewController: UIViewController {
     @IBOutlet var memoDeleteButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     
+//    @IBOutlet var leftBurButtonItem: UIBarButtonItem!
+//    @IBOutlet var rightBurButtonItem: UIBarButtonItem!
+    
     var titleData: NSData!
     var memoData: NSData!
     var titleImage: UIImage!
@@ -36,10 +39,25 @@ class WriteSchedulesViewController: UIViewController {
     
     var editMode: Bool = true
     
-    let borderColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1.0)
+    let borderColor = UIColor(red: 0.53, green: 0.53, blue: 0.53, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in 0...6 {
+            if appDelegate.colorIndex == i {
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
+            }
+        }
+        
+//        let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
+//        button.setBackgroundImage(UIImage(named: "cancel.png"), for: .normal)
+//        leftBurButtonItem.customView = button
+//        leftBurButtonItem.customView?.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
+//        leftBurButtonItem.customView?.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
+////        barButtonItem.customView = button
+////        barButtonItem.customView?.widthAnchor.constraint(equalToConstant: 24.0).isActive = true
+////        barButtonItem.customView?.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
         
         for i in 0...6 {
             if appDelegate.colorIndex == i {
@@ -68,7 +86,9 @@ class WriteSchedulesViewController: UIViewController {
                 tableArray.append(i.title!)
                 memoArray.append(i.memo!)
                 titleView.canvas.image = UIImage(data: tableArray[index])
+                titleView.lastDrawImage = UIImage(data: tableArray[index])
                 memoView.canvas.image = UIImage(data: memoArray[index])
+                memoView.lastDrawImage = UIImage(data: memoArray[index])
             }
         }else{
             saveDate = appDelegate.selectedDate
@@ -77,8 +97,9 @@ class WriteSchedulesViewController: UIViewController {
         
         // 画像が表示されているかどうかで編集モードを切り替える
         if titleView.canvas.image != nil {
+            
             print("編集")
-            addButton.setImage(UIImage(named: "penIcon3.png"), for: UIControlState())
+            addButton.setImage(UIImage(named: "penIcon.png"), for: UIControlState())
             
             // ビューに書き込めないようにする
             editMode = false
@@ -94,33 +115,47 @@ class WriteSchedulesViewController: UIViewController {
         titleRepresentation()
         memoRepresentation()
         
-        if editMode == true {
-            save()
-            dismiss(animated: true, completion: nil)
+        if titleView.canvas.image == nil {
+            let title = "保存できません"
+            let message = "タイトルを記入してください"
+            let close = "閉じる"
             
-        }else if editMode == false {
-            print("viewのboolは")
-            print(titleView.editMode)
-            // 編集モードだったら、内容を更新して保存。新規セルを作らないように！
-            if titleView.editMode == true {
-                print("true呼ばれた")
-                titleView.editMode = false
-                memoView.editMode = false
-                let appdateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)[index]
-                try! realm.write {
-                    appdateData.title = titleData! as Data
-                    appdateData.memo = memoData! as Data
-                }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let closeButton = UIAlertAction(title: close, style: .cancel, handler: nil)
+            alert.addAction(closeButton)
+            
+            present(alert, animated: true, completion: nil)
+        }else{
+            if editMode == true {
+                save()
                 dismiss(animated: true, completion: nil)
                 
-            }else if titleView.editMode == false {
-                print("false呼ばれた")
-                // 編集モードじゃなかったら、ボタンを変更して書き込めるようにする。
-                titleView.editMode = true
-                memoView.editMode = true
-                addButton.setImage(UIImage(named: "checkMark.png"), for: UIControlState())
+            }else if editMode == false {
+                print("viewのboolは")
+                print(titleView.editMode)
+                // 編集モードだったら、内容を更新して保存。新規セルを作らないように！
+                if titleView.editMode == true {
+                    print("true呼ばれた")
+                    titleView.editMode = false
+                    memoView.editMode = false
+                    let appdateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)[index]
+                    try! realm.write {
+                        appdateData.title = titleData! as Data
+                        appdateData.memo = memoData! as Data
+                    }
+                    dismiss(animated: true, completion: nil)
+                    
+                }else if titleView.editMode == false {
+                    print("false呼ばれた")
+//                     編集モードじゃなかったら、ボタンを変更して書き込めるようにする。
+                                    titleView.editMode = true
+                                    memoView.editMode = true
+                                    addButton.setImage(UIImage(named: "checkMark.png"), for: UIControlState())
+                }
             }
         }
+        
+        
     }
     
     

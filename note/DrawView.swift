@@ -12,7 +12,7 @@ class DrawView: UIView {
 
     
     var penColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
-    var penSize: CGFloat = 6.0
+    var penSize: CGFloat = 3.0
     
     var path: UIBezierPath!
     var lastDrawImage: UIImage?
@@ -20,12 +20,6 @@ class DrawView: UIView {
     var editMode: Bool = true
     
     var canvas = UIImageView()
-    
-//    override func draw(_ rect: CGRect) {
-//        lastDrawImage?.draw(at: CGPoint.zero)
-//        penColor.setStroke()
-//        path?.stroke()
-//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

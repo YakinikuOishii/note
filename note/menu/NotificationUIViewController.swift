@@ -105,8 +105,7 @@ class NotificationUIViewController: UIViewController{
     @objc func switchClick(sender: UISwitch){
         
         if sender.isOn {
-            AudioServicesPlaySystemSound(1003);
-            AudioServicesDisposeSystemSoundID(1003);
+            UIApplication.shared.cancelAllLocalNotifications()
             print("On")
         }else {
             print("Off")

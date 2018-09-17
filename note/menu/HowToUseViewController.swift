@@ -17,7 +17,10 @@ class HowToUseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
+        
         calenderButton.layer.borderColor = borderColor.cgColor
+        calenderButton.layer.borderWidth = 1.5
 
         // Do any additional setup after loading the view.
     }
