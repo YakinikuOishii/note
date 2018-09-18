@@ -37,6 +37,7 @@
 		5983857A21505033000F18E5 /* tuto3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5983857621505033000F18E5 /* tuto3.png */; };
 		5983857B21505033000F18E5 /* tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5983857721505033000F18E5 /* tuto2.png */; };
 		5983857D215058B5000F18E5 /* CalenderTutoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983857C215058B5000F18E5 /* CalenderTutoPageViewController.swift */; };
+		5983861321510DEC000F18E5 /* BaseTutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983861221510DEC000F18E5 /* BaseTutoViewController.swift */; };
 		598EFA362137877000BF493B /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA2F2137876E00BF493B /* purple.png */; };
 		598EFA372137877000BF493B /* pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA302137876E00BF493B /* pink.png */; };
 		598EFA382137877000BF493B /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 598EFA312137876F00BF493B /* red.png */; };
@@ -151,6 +152,7 @@
 		5983857621505033000F18E5 /* tuto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto3.png; sourceTree = "<group>"; };
 		5983857721505033000F18E5 /* tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto2.png; sourceTree = "<group>"; };
 		5983857C215058B5000F18E5 /* CalenderTutoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderTutoPageViewController.swift; sourceTree = "<group>"; };
+		5983861221510DEC000F18E5 /* BaseTutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTutoViewController.swift; sourceTree = "<group>"; };
 		598EFA2F2137876E00BF493B /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
 		598EFA302137876E00BF493B /* pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink.png; sourceTree = "<group>"; };
 		598EFA312137876F00BF493B /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				593103C32147C87B00ACCA8F /* TimeSettingViewController.swift */,
 				5983856F214D5D38000F18E5 /* HowToUseViewController.swift */,
 				5983857C215058B5000F18E5 /* CalenderTutoPageViewController.swift */,
+				5983861221510DEC000F18E5 /* BaseTutoViewController.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				5914491C211ECBEB0074D728 /* NotificationUIViewController.swift in Sources */,
 				5906BB9E20B42F9B000C18C3 /* realmDataSet.swift in Sources */,
 				59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */,
+				5983861321510DEC000F18E5 /* BaseTutoViewController.swift in Sources */,
 				590698D820B1C91A009F5350 /* DrawView.swift in Sources */,
 				5914491A211E8FF90074D728 /* RootTableViewController.swift in Sources */,
 				59D2F7E020AAF78000C3B2BC /* CustomCell.swift in Sources */,

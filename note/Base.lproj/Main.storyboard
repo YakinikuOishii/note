@@ -699,7 +699,7 @@
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ikl-RZ-obK" kind="presentation" id="2ka-0o-tbC"/>
+                                    <segue destination="nk3-mb-LNI" kind="presentation" id="Lfd-nZ-JhY"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calenderIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-mT-sll">
@@ -716,32 +716,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="記入と保存編" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="re3-c5-EdX">
-                                <rect key="frame" x="165" y="212" width="167" height="19"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkP-qs-g1Q">
-                                <rect key="frame" x="45" y="353" width="324" height="184"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="calenderIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="XQn-qS-MZI">
-                                <rect key="frame" x="60" y="395" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="BC5-P5-GCf"/>
-                                    <constraint firstAttribute="width" constant="100" id="vhU-3P-vYh"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="カレンダー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cer-S7-mez">
-                                <rect key="frame" x="165" y="410" width="166.66666666666663" height="39.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYa-wA-17j">
-                                <rect key="frame" x="165" y="461" width="167" height="19"/>
+                                <rect key="frame" x="165" y="203" width="167" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -750,19 +725,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Oh-NM-4cP" firstAttribute="top" secondItem="Cvc-jP-6sT" secondAttribute="top" constant="40" id="1W1-fP-xld"/>
-                            <constraint firstItem="JYa-wA-17j" firstAttribute="leading" secondItem="Cer-S7-mez" secondAttribute="leading" id="1pM-yI-WOy"/>
                             <constraint firstItem="Cvc-jP-6sT" firstAttribute="trailing" secondItem="9Oh-NM-4cP" secondAttribute="trailing" constant="45" id="9v7-Di-Fc3"/>
-                            <constraint firstItem="XQn-qS-MZI" firstAttribute="centerY" secondItem="EkP-qs-g1Q" secondAttribute="centerY" id="AYw-zB-eCn"/>
                             <constraint firstItem="re3-c5-EdX" firstAttribute="bottom" secondItem="HgE-mT-sll" secondAttribute="bottom" constant="-15" id="Be5-TS-KpS"/>
                             <constraint firstItem="9Oh-NM-4cP" firstAttribute="height" secondItem="vXp-xt-TRj" secondAttribute="height" multiplier="0.25" id="Etc-ik-pLs"/>
                             <constraint firstItem="DVR-n2-5Md" firstAttribute="leading" secondItem="HgE-mT-sll" secondAttribute="trailing" constant="5" id="Jpl-yl-qJj"/>
-                            <constraint firstItem="Cer-S7-mez" firstAttribute="top" secondItem="XQn-qS-MZI" secondAttribute="top" constant="15" id="W6w-lx-I31"/>
                             <constraint firstItem="HgE-mT-sll" firstAttribute="centerY" secondItem="9Oh-NM-4cP" secondAttribute="centerY" id="Yyl-AW-qQT"/>
                             <constraint firstItem="DVR-n2-5Md" firstAttribute="top" secondItem="HgE-mT-sll" secondAttribute="top" constant="15" id="hFP-hl-fsk"/>
                             <constraint firstItem="re3-c5-EdX" firstAttribute="leading" secondItem="DVR-n2-5Md" secondAttribute="leading" id="mQC-jf-iaP"/>
                             <constraint firstItem="HgE-mT-sll" firstAttribute="leading" secondItem="Cvc-jP-6sT" secondAttribute="leading" constant="60" id="nP7-oy-H79"/>
-                            <constraint firstItem="JYa-wA-17j" firstAttribute="bottom" secondItem="XQn-qS-MZI" secondAttribute="bottom" constant="-15" id="pDk-lN-fL0"/>
-                            <constraint firstItem="Cer-S7-mez" firstAttribute="leading" secondItem="XQn-qS-MZI" secondAttribute="trailing" constant="5" id="qWt-eh-Mtd"/>
                             <constraint firstItem="9Oh-NM-4cP" firstAttribute="leading" secondItem="Cvc-jP-6sT" secondAttribute="leading" constant="45" id="uTB-xR-tfU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cvc-jP-6sT"/>
@@ -783,14 +753,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIY-Lp-TJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2734.7826086956525" y="1736.413043478261"/>
-        </scene>
-        <!--Calender Tuto Page View Controller-->
-        <scene sceneID="9Xm-tO-bLP">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zqh-Kd-1jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Ikl-RZ-obK" customClass="CalenderTutoPageViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController"/>
-            </objects>
-            <point key="canvasLocation" x="2736" y="2427"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="09c-XA-kcv">
@@ -820,11 +782,6 @@
                                 <rect key="frame" x="0.0" y="402.5" width="375" height="33.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8um-sk-nlj">
-                                <rect key="frame" x="99" y="511" width="178" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="スキップ"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -926,8 +883,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. チェックを押す" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afw-UP-Dz8">
-                                <rect key="frame" x="6.5" y="443.5" width="362" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <rect key="frame" x="10.5" y="443.5" width="354.5" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1053,11 +1010,72 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xyM-As-fd1" id="FlP-kz-re2"/>
+                        <segue destination="irP-Ff-iEH" kind="presentation" identifier="toHowTo" id="re8-Wk-WDH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipg-s7-22D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3502.898550724638" y="1736.413043478261"/>
+        </scene>
+        <!--Base Tuto View Controller-->
+        <scene sceneID="R0S-eV-xV9">
+            <objects>
+                <viewController id="nk3-mb-LNI" customClass="BaseTutoViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Q5-mG-z4c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PW6-28-MMv">
+                                <rect key="frame" x="0.0" y="67" width="375" height="467"/>
+                                <connections>
+                                    <segue destination="ccG-vQ-tLX" kind="embed" id="ylZ-0z-e05"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w16-CN-HIu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUV-eI-5G7">
+                                <rect key="frame" x="126" y="542" width="123" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="スキップ">
+                                    <color key="titleColor" red="0.0" green="0.67843137254901964" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="skip" destination="nk3-mb-LNI" eventType="touchUpInside" id="0Tb-FK-e56"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PW6-28-MMv" firstAttribute="trailing" secondItem="agt-hJ-7hr" secondAttribute="trailing" id="AJD-yV-4WI"/>
+                            <constraint firstItem="PW6-28-MMv" firstAttribute="leading" secondItem="agt-hJ-7hr" secondAttribute="leading" id="Mg2-9g-Q3E"/>
+                            <constraint firstItem="w16-CN-HIu" firstAttribute="top" secondItem="8Q5-mG-z4c" secondAttribute="top" id="MtH-xY-6TI"/>
+                            <constraint firstItem="w16-CN-HIu" firstAttribute="trailing" secondItem="agt-hJ-7hr" secondAttribute="trailing" id="NXQ-zW-lEu"/>
+                            <constraint firstItem="w16-CN-HIu" firstAttribute="top" secondItem="8Q5-mG-z4c" secondAttribute="top" id="Psd-uz-TIZ"/>
+                            <constraint firstItem="PW6-28-MMv" firstAttribute="height" secondItem="8Q5-mG-z4c" secondAttribute="height" multiplier="0.7" id="R8V-vr-MHp"/>
+                            <constraint firstItem="w16-CN-HIu" firstAttribute="height" secondItem="8Q5-mG-z4c" secondAttribute="height" multiplier="0.1" id="TMU-0X-Wmh"/>
+                            <constraint firstItem="PW6-28-MMv" firstAttribute="top" secondItem="w16-CN-HIu" secondAttribute="bottom" id="wqN-Nl-r66"/>
+                            <constraint firstItem="w16-CN-HIu" firstAttribute="leading" secondItem="agt-hJ-7hr" secondAttribute="leading" id="z8u-F6-RW9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="agt-hJ-7hr"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="cUV-eI-5G7" id="Wn4-KM-meC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kt7-id-Kdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2733.5999999999999" y="2462.5187406296855"/>
+        </scene>
+        <!--Calender Tuto Page View Controller-->
+        <scene sceneID="v3Q-yz-HS2">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ccG-vQ-tLX" customClass="CalenderTutoPageViewController" customModule="SPEEDAY" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCc-7h-iqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3663" y="2431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ksi-oK-8uO">
@@ -2873,6 +2891,7 @@ AFYAAAAAAAAAAAAAAAAAAZ2uA
         <image name="tuto4.png" width="331" height="331"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cLP-nL-tD5"/>
         <segue reference="EMd-nI-jXL"/>
         <segue reference="Qsb-y5-eLs"/>
     </inferredMetricsTieBreakers>

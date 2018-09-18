@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // 予定追加するボタン
         let addSchedulesButton = UIButton()
+        // ビューのサイズからどのくらい離れてるかで描画する
         addSchedulesButton.frame = CGRect(x: 255, y: 540,width: 100, height: 100)
         
         for i in 0...6 {

@@ -8,79 +8,68 @@
 
 import UIKit
 
-struct PageSettings {
-    static let idList = ["tuto1", "tuto2", "tuto3","tuto4"]
-    
-    static func generateViewControllerList() -> [UIViewController] {
-        var viewControllers : [UIViewController] = []
-        self.idList.forEach{ viewControllerName in
-            let viewController = UIStoryboard(name: "Main", bundle: nil) . instantiateViewController(withIdentifier: "\(viewControllerName)")
-            
-            viewControllers.append(viewController)
-        }
-        return viewControllers
-    }
-}
-
 class CalenderTutoPageViewController: UIPageViewController{
     
-    var pageControl: UIPageControl!
-    var viewControllerIndex : Int = 0
+    let idList = ["tuto1", "tuto2", "tuto3", "tuto4"]
     
+    //最初からあるメソッド
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setViewControllers([PageSettings.generateViewControllerList().first!], direction: .forward, animated: true, completion: nil)
-        self.dataSource = self
+        
+        //最初のビューコントローラーを取得する。
+        let controller = storyboard!.instantiateViewController(withIdentifier: idList.first!)
+        
+        //ビューコントローラーを表示する。
+        self.setViewControllers([controller], direction: .forward, animated: true, completion:nil)
+        
+        //データ提供元に自分を設定する。
+//        self.dataSource = self
+        
+        //全ページ数を返すメソッド
+        func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+            return idList.count
+        }
+        
+        //ページコントロールの最初の位置を返すメソッド
+        func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+            return 0
+        }
     }
     
-    //ページコントロールの最初の位置を返すメソッド
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
+    
+    
+    //右ドラッグ時の呼び出しメソッド
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        //現在のビューコントローラーのインデックス番号を取得する。
+//        let index = idList.indexOf(viewController.restorationIdentifier!)!
+        let index = idList.index(of: viewController.restorationIdentifier!)!
+        if (index > 0) {
+            //前ページのビューコントローラーを返す。
+            return storyboard!.instantiateViewController(withIdentifier: idList[index-1])
+        }
+        return nil
     }
+    
+    
+    
+    //左ドラッグ時の呼び出しメソッド
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        //現在のビューコントローラーのインデックス番号を取得する。
+        let index = idList.index(of: viewController.restorationIdentifier!)!
+        if (index < idList.count-1) {
+            //次ページのビューコントローラーを返す。
+            return storyboard!.instantiateViewController(withIdentifier: idList[index+1])
+        }
+        return nil
+    }
+    
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension CalenderTutoPageViewController : UIPageViewControllerDataSource {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        let targetViewControllers : [UIViewController] = PageSettings.generateViewControllerList()
-        
-        if viewControllerIndex == targetViewControllers.count - 1 {
-            return nil
-        } else {
-            viewControllerIndex = viewControllerIndex + 1
-        }
-        
-        return targetViewControllers[viewControllerIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        let targetViewControllers : [UIViewController] = PageSettings.generateViewControllerList()
-        
-        if viewControllerIndex == 0 {
-            return nil
-        } else {
-            viewControllerIndex = viewControllerIndex - 1
-        }
-        
-        return targetViewControllers[viewControllerIndex]
-    }
-    
 }
