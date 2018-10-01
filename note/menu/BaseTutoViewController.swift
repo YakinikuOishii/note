@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseTutoViewController: UIPageViewController {
+class BaseTutoViewController: UIViewController {
     
     @IBOutlet var button: UIButton!
     

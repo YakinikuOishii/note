@@ -20,7 +20,6 @@ class WriteSchedulesViewController: UIViewController {
     
     var selectedDate: Date!
     var saveDate: Date!
-    var index: Int!
     
     @IBOutlet var titleView: DrawView!
     @IBOutlet var memoView: DrawView!
@@ -39,25 +38,20 @@ class WriteSchedulesViewController: UIViewController {
     
     var editMode: Bool = true
     
+    var index: Int!
+    
     let borderColor = UIColor(red: 0.53, green: 0.53, blue: 0.53, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        index = appDelegate.index
         
         for i in 0...6 {
             if appDelegate.colorIndex == i {
                 self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
             }
         }
-        
-//        let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
-//        button.setBackgroundImage(UIImage(named: "cancel.png"), for: .normal)
-//        leftBurButtonItem.customView = button
-//        leftBurButtonItem.customView?.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
-//        leftBurButtonItem.customView?.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
-////        barButtonItem.customView = button
-////        barButtonItem.customView?.widthAnchor.constraint(equalToConstant: 24.0).isActive = true
-////        barButtonItem.customView?.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
         
         for i in 0...6 {
             if appDelegate.colorIndex == i {
@@ -74,39 +68,24 @@ class WriteSchedulesViewController: UIViewController {
         titleView.layer.borderWidth = 1.5
         memoView.layer.borderWidth = 1.5
         
-        index = appDelegate.index
-        
-        let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)
-        var tableArray: [Data] = []
-        var memoArray: [Data] = []
-        if index != nil {
-            print("indexは空じゃないよ")
-            print(index)
-            for i in dataSet {
-                tableArray.append(i.title!)
-                memoArray.append(i.memo!)
-                titleView.canvas.image = UIImage(data: tableArray[index])
-                titleView.lastDrawImage = UIImage(data: tableArray[index])
-                memoView.canvas.image = UIImage(data: memoArray[index])
-                memoView.lastDrawImage = UIImage(data: memoArray[index])
-            }
-        }else{
+        if index == nil {
+            print("新規登録")
             saveDate = appDelegate.selectedDate
-            print("indexは空だよ")
-        }
-        
-        // 画像が表示されているかどうかで編集モードを切り替える
-        if titleView.canvas.image != nil {
             
-            print("編集")
-            addButton.setImage(UIImage(named: "penIcon.png"), for: UIControlState())
+        }else if index != nil {
+            print("新規じゃない")
+            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: false)
+            var titleArray: [Data] = []
+            var memoArray: [Data] = []
             
-            // ビューに書き込めないようにする
-            editMode = false
-            titleView.editMode = false
-            memoView.editMode = false
-        }else{
-            print("新規")
+            for i in dataSet {
+                titleArray.append(i.title!)
+                memoArray.append(i.memo!)
+                titleView.canvas.image = UIImage(data: titleArray[index!])
+                titleView.lastDrawImage = UIImage(data: titleArray[index!])
+                memoView.canvas.image = UIImage(data: memoArray[index!])
+                memoView.lastDrawImage = UIImage(data: memoArray[index!])
+            }
         }
         
     }
@@ -126,33 +105,20 @@ class WriteSchedulesViewController: UIViewController {
             
             present(alert, animated: true, completion: nil)
         }else{
-            if editMode == true {
+            if index == nil {
+                print("新規保存")
                 save()
                 dismiss(animated: true, completion: nil)
-                
-            }else if editMode == false {
-                print("viewのboolは")
-                print(titleView.editMode)
-                // 編集モードだったら、内容を更新して保存。新規セルを作らないように！
-                if titleView.editMode == true {
-                    print("true呼ばれた")
-                    titleView.editMode = false
-                    memoView.editMode = false
-                    let appdateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate)[index]
-                    try! realm.write {
-                        appdateData.title = titleData! as Data
-                        appdateData.memo = memoData! as Data
-                    }
-                    dismiss(animated: true, completion: nil)
-                    
-                }else if titleView.editMode == false {
-                    print("false呼ばれた")
-//                     編集モードじゃなかったら、ボタンを変更して書き込めるようにする。
-                                    titleView.editMode = true
-                                    memoView.editMode = true
-                                    addButton.setImage(UIImage(named: "checkMark.png"), for: UIControlState())
+            }else if index != nil {
+                print("編集保存")
+                let updateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: false)[index!]
+                try! realm.write {
+                    updateData.title = titleData! as Data
+                    updateData.memo = memoData! as Data
                 }
+                dismiss(animated: true, completion: nil)
             }
+
         }
         
         
@@ -213,7 +179,7 @@ class WriteSchedulesViewController: UIViewController {
                 
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-                print(tomorrowComponents.hour as Any)
+//                print(tomorrowComponents.hour as Any)
                 center.add(request)
             }else{
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
@@ -224,7 +190,7 @@ class WriteSchedulesViewController: UIViewController {
                 }
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-                print(components.hour as Any)
+//                print(components.hour as Any)
                 center.add(request)
             }
             

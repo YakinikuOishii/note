@@ -12,7 +12,6 @@ class CalenderTutoPageViewController: UIPageViewController{
     
     let idList = ["tuto1", "tuto2", "tuto3", "tuto4"]
     
-    //最初からあるメソッド
     override func viewDidLoad() {
         
         //最初のビューコントローラーを取得する。
