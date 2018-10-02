@@ -59,7 +59,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellImg.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xv-Js-O11">
-                                                    <rect key="frame" x="-1" y="-1" width="322" height="87"/>
+                                                    <rect key="frame" x="-1" y="-1" width="377" height="87"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="87" id="u2C-xd-C52"/>
                                                     </constraints>
@@ -440,7 +440,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="BM7-R3-wcm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="BM7-R3-wcm">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BM7-R3-wcm" id="M9d-6H-k2M">
@@ -648,7 +648,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="Ezl-EE-09S">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="Ezl-EE-09S">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ezl-EE-09S" id="sai-q1-RaK">
@@ -702,7 +702,7 @@
                                     <segue destination="nk3-mb-LNI" kind="presentation" id="Lfd-nZ-JhY"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calenderIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-mT-sll">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendarIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgE-mT-sll">
                                 <rect key="frame" x="60" y="93" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="IZg-g2-HTM"/>
@@ -983,7 +983,7 @@
                                 <rect key="frame" x="0.0" y="104" width="375" height="267"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="Kr9-X4-FgB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="Kr9-X4-FgB">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kr9-X4-FgB" id="Hng-qi-HRt">
@@ -1105,7 +1105,7 @@
         <image name="Circle2.png" width="1746" height="1647"/>
         <image name="bell.png" width="100" height="100"/>
         <image name="blueBG.png" width="375" height="415"/>
-        <image name="calenderIcon.png" width="500" height="500"/>
+        <image name="calendarIcon.png" width="500" height="500"/>
         <image name="cancel.png" width="60" height="60"/>
         <image name="cellImg.png" width="375" height="93"/>
         <image name="checkMark.png" width="100" height="100"/>
@@ -2896,7 +2896,7 @@ AFYAAAAAAAAAAAAAAAAAAZ2uA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="re8-Wk-WDH"/>
-        <segue reference="PTk-lo-MXm"/>
+        <segue reference="EMd-nI-jXL"/>
         <segue reference="EDh-f5-piW"/>
     </inferredMetricsTieBreakers>
 </document>
