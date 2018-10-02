@@ -108,7 +108,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // テーブルビュー
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedDate != nil {
-            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: true)
+            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "recordDate", ascending: true)
             return dataSet.count
         }else {
           return 3
@@ -119,7 +119,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         var titleArray: [Data] = []
         if selectedDate != nil {
-            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: true)
+            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "recordDate", ascending: true)
             for i in dataSet {
                 titleArray.append(i.title! as Data)
             }
@@ -142,7 +142,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            let deleteData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: true)[indexPath.row]
+            let deleteData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "recordDate", ascending: true)[indexPath.row]
             try! realm.write {
                 realm.delete(deleteData)
             }
@@ -232,7 +232,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
             cell.selectedView.isHidden = false
         }
         
-        let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", date).sorted(byKeyPath: "date", ascending: true)
+        let dataSet = self.realm.objects(realmDataSet.self).filter("date == %@", date).sorted(byKeyPath: "recordDate", ascending: true)
                     if dataSet.count >= 1 {
                         cell.markView.isHidden = false
                     }else if dataSet.count == 0 {

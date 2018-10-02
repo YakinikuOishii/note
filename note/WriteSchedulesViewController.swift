@@ -73,19 +73,21 @@ class WriteSchedulesViewController: UIViewController {
             saveDate = appDelegate.selectedDate
             
         }else if index != nil {
-            print("新規じゃない")
-            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: false)
+            print("編集")
+            let dataSet = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "recordDate", ascending: true)
             var titleArray: [Data] = []
             var memoArray: [Data] = []
             
             for i in dataSet {
                 titleArray.append(i.title!)
                 memoArray.append(i.memo!)
-                titleView.canvas.image = UIImage(data: titleArray[index!])
-                titleView.lastDrawImage = UIImage(data: titleArray[index!])
-                memoView.canvas.image = UIImage(data: memoArray[index!])
-                memoView.lastDrawImage = UIImage(data: memoArray[index!])
+                print("セルは\(index)番目")
+                print("タイトルarrayは\(titleArray.count)個")
             }
+            titleView.canvas.image = UIImage(data: titleArray[index!])
+            titleView.lastDrawImage = UIImage(data: titleArray[index!])
+            memoView.canvas.image = UIImage(data: memoArray[index!])
+            memoView.lastDrawImage = UIImage(data: memoArray[index!])
         }
         
     }
@@ -111,7 +113,7 @@ class WriteSchedulesViewController: UIViewController {
                 dismiss(animated: true, completion: nil)
             }else if index != nil {
                 print("編集保存")
-                let updateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "date", ascending: false)[index!]
+                let updateData = realm.objects(realmDataSet.self).filter("date == %@", selectedDate).sorted(byKeyPath: "recordDate", ascending: true)[index!]
                 try! realm.write {
                     updateData.title = titleData! as Data
                     updateData.memo = memoData! as Data
@@ -143,6 +145,7 @@ class WriteSchedulesViewController: UIViewController {
 
         
         dataSet.date = selectedDate
+        dataSet.recordDate = Date()
         dataSet.title = titleData! as Data
         dataSet.memo = memoData! as Data
         

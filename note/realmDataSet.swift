@@ -11,6 +11,7 @@ import RealmSwift
 
 class realmDataSet: Object {
     @objc dynamic var date: Date? = nil
+    @objc dynamic var recordDate: Date? = nil
     @objc dynamic var title: Data? = nil
     @objc dynamic var memo: Data? = nil
 }
