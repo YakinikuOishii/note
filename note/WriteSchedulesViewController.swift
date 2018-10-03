@@ -175,7 +175,7 @@ class WriteSchedulesViewController: UIViewController {
             yesterday.day = -1
             let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
             if appDelegate.tomorrowBool == true {
-                content.title = "明日の予定がn件あります"
+                content.title = "明日の予定があります"
                 // カレンダー上でマイナス1日してくれる
                 let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
                 var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
@@ -190,7 +190,7 @@ class WriteSchedulesViewController: UIViewController {
 //                print(tomorrowComponents.hour as Any)
                 center.add(request)
             }else{
-                content.title = "今日の予定がn件あります"
+                content.title = "今日の予定があります"
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
                 if hour != nil {
                     components.hour = hour
