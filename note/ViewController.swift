@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // 予定追加するボタン
         let addSchedulesButton = UIButton()
         // ビューのサイズからどのくらい離れてるかで描画する
-        addSchedulesButton.frame = CGRect(x: 255, y: 540,width: 100, height: 100)
+        addSchedulesButton.frame = CGRect(x: self.view.frame.width - 130, y: self.view.frame.height - 130,width: 100, height: 100)
         
         for i in 0...6 {
             if appDelegate.colorIndex == i {
@@ -61,21 +61,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         
-        // 曜日ラベル
-//        for i in 0...6 {
-//            weekLabel = UILabel()
-//            let float: CGFloat = CGFloat(i)
-//            weekLabel.frame = CGRect(x: 375/7 * float,y: 108,width: 375/7,height: 50)
-//            weekLabel.backgroundColor = UIColor.clear
-//            weekLabel.textAlignment = .center
-//            weekLabel.text = weekArray[i]
-//            weekLabel.textColor = UIColor.white
-//            weekLabel.font = UIFont(name: "Dense", size: 23)
-//            self.view.addSubview(weekLabel)
-//        }
-      
         
-//        addSchedulesButton.setImage(UIImage(named: "button"), for: UIControlState())
+        
         addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
         self.view.addSubview(addSchedulesButton)
         

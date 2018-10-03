@@ -27,6 +27,8 @@ class WriteSchedulesViewController: UIViewController {
     @IBOutlet var titleDeleteButton: UIButton!
     @IBOutlet var memoDeleteButton: UIButton!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleText: UILabel!
+    @IBOutlet var memoText: UILabel!
     
 //    @IBOutlet var leftBurButtonItem: UIBarButtonItem!
 //    @IBOutlet var rightBurButtonItem: UIBarButtonItem!
@@ -41,6 +43,13 @@ class WriteSchedulesViewController: UIViewController {
     var index: Int!
     
     let borderColor = UIColor(red: 0.53, green: 0.53, blue: 0.53, alpha: 1.0)
+    let blue = UIColor(red: 0.313, green: 0.662, blue: 0.945, alpha: 1.0)
+    let green = UIColor(red: 0.145, green: 0.772, blue: 0.521, alpha: 1.0)
+    let orange = UIColor(red: 1.0, green: 0.709, blue: 0.168, alpha: 1.0)
+    let red = UIColor(red: 0.913, green: 0.317, blue: 0.301, alpha: 1.0)
+    let pink = UIColor(red: 0.890, green: 0.417, blue: 0.596, alpha: 1.0)
+    let purple = UIColor(red: 0.823, green: 0.0, blue: 1.0, alpha: 1.0)
+    let black = UIColor(red: 0.160, green: 0.152, blue: 0.309, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +59,10 @@ class WriteSchedulesViewController: UIViewController {
         for i in 0...6 {
             if appDelegate.colorIndex == i {
                 self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
-            }
-        }
-        
-        for i in 0...6 {
-            if appDelegate.colorIndex == i {
                 imageView.image = UIImage(named: appDelegate.bgColorArray[i])
             }
         }
+        textColor()
         
         selectedDate = appDelegate.selectedDate
         
@@ -160,8 +165,8 @@ class WriteSchedulesViewController: UIViewController {
             center.delegate = self as? UNUserNotificationCenterDelegate
 
             let content = UNMutableNotificationContent()
-            content.title = "タイトルだよ"
-            content.body = "通知だよ"
+//            content.title = ""
+//            content.body = "通知だよ"
             content.badge = 1
             content.sound = .default()
             let calendar = Calendar(identifier: .gregorian)
@@ -170,7 +175,7 @@ class WriteSchedulesViewController: UIViewController {
             yesterday.day = -1
             let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
             if appDelegate.tomorrowBool == true {
-                
+                content.title = "明日の予定がn件あります"
                 // カレンダー上でマイナス1日してくれる
                 let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
                 var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
@@ -185,6 +190,7 @@ class WriteSchedulesViewController: UIViewController {
 //                print(tomorrowComponents.hour as Any)
                 center.add(request)
             }else{
+                content.title = "今日の予定がn件あります"
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
                 if hour != nil {
                     components.hour = hour
@@ -196,6 +202,7 @@ class WriteSchedulesViewController: UIViewController {
 //                print(components.hour as Any)
                 center.add(request)
             }
+            
             
             
             
@@ -239,6 +246,50 @@ class WriteSchedulesViewController: UIViewController {
     func memoRepresentation() {
         memoImage = memoView.snapShot()
         memoData = UIImagePNGRepresentation(memoImage)! as NSData
+    }
+    
+    func textColor() {
+        if appDelegate.colorIndex == 0 {
+            titleText.textColor = blue
+            memoText.textColor = blue
+            titleDeleteButton.tintColor = blue
+            memoDeleteButton.tintColor = blue
+        }else if appDelegate.colorIndex == 1 {
+            titleText.textColor = green
+            memoText.textColor = green
+            titleDeleteButton.tintColor = green
+            memoDeleteButton.tintColor = green
+        }else if appDelegate.colorIndex == 2 {
+            titleText.textColor = orange
+            memoText.textColor = orange
+            titleDeleteButton.tintColor = orange
+            memoDeleteButton.tintColor = orange
+        }else if appDelegate.colorIndex == 3 {
+            titleText.textColor = red
+            memoText.textColor = red
+            titleDeleteButton.tintColor = red
+            memoDeleteButton.tintColor = red
+        }else if appDelegate.colorIndex == 4 {
+            titleText.textColor = pink
+            memoText.textColor = pink
+            titleDeleteButton.tintColor = pink
+            memoDeleteButton.tintColor = pink
+        }else if appDelegate.colorIndex == 5 {
+            titleText.textColor = purple
+            memoText.textColor = purple
+            titleDeleteButton.tintColor = purple
+            memoDeleteButton.tintColor = purple
+        }else if appDelegate.colorIndex == 6 {
+            titleText.textColor = black
+            memoText.textColor = black
+            titleDeleteButton.tintColor = black
+            memoDeleteButton.tintColor = black
+        }else{
+            titleText.textColor = blue
+            memoText.textColor = blue
+            titleDeleteButton.tintColor = blue
+            memoDeleteButton.tintColor = blue
+        }
     }
 
     override func didReceiveMemoryWarning() {

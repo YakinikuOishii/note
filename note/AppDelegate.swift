@@ -42,6 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // アプリ閉じた時
+        
+        //ローカル通知
+//        let notification = UILocalNotification()
+//        //ロック中にスライドで〜〜のところの文字
+//        notification.alertAction = "アプリを開く"
+//        //通知の本文
+//        notification.alertBody = "ごはんたべよう！"
+//        //通知される時間（とりあえず10秒後に設定）
+//        notification.fireDate = NSDate(timeIntervalSinceNow:10) as Date
+//        //通知音
+//        notification.soundName = UILocalNotificationDefaultSoundName
+//        //アインコンバッジの数字
+//        notification.applicationIconBadgeNumber = 1
+//        //通知を識別するID
+//        notification.userInfo = ["notifyID":"gohan"]
+//        //通知をスケジューリング
+//        application.scheduleLocalNotification(notification)
     }
     
     

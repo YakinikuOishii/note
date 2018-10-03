@@ -19,6 +19,8 @@
 		59144922211FC4B20074D728 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59144921211FC4B20074D728 /* HelpViewController.swift */; };
 		593103C42147C87B00ACCA8F /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593103C32147C87B00ACCA8F /* TimeSettingViewController.swift */; };
 		593E7DC521201A60005F403B /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E7DC421201A60005F403B /* ThemeColorViewController.swift */; };
+		59471D772165383D0067C36B /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59471D762165383D0067C36B /* CarouselViewController.swift */; };
+		59471D7921653FC90067C36B /* PagingPerCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59471D7821653FC90067C36B /* PagingPerCellFlowLayout.swift */; };
 		5973FC782163747D00E71483 /* pinkBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5973FC502163747D00E71483 /* pinkBG.png */; };
 		5973FC792163747D00E71483 /* blackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5973FC512163747D00E71483 /* blackBG.png */; };
 		5973FC7A2163747D00E71483 /* purpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5973FC522163747D00E71483 /* purpleBG.png */; };
@@ -56,6 +58,8 @@
 		5973FC9A2163747D00E71483 /* calendarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5973FC752163747D00E71483 /* calendarIcon.png */; };
 		5973FC9B2163747D00E71483 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 5973FC762163747D00E71483 /* trash.png */; };
 		5973FC9C2163747D00E71483 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 5973FC772163747D00E71483 /* line.png */; };
+		5973FC9E216519BD00E71483 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973FC9D216519BD00E71483 /* CarouselView.swift */; };
+		5973FCA021651A4300E71483 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5973FC9F21651A4300E71483 /* CarouselCell.swift */; };
 		59838570214D5D38000F18E5 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983856F214D5D38000F18E5 /* HowToUseViewController.swift */; };
 		5983857D215058B5000F18E5 /* CalenderTutoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983857C215058B5000F18E5 /* CalenderTutoPageViewController.swift */; };
 		5983861321510DEC000F18E5 /* BaseTutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983861221510DEC000F18E5 /* BaseTutoViewController.swift */; };
@@ -129,6 +133,8 @@
 		59144921211FC4B20074D728 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		593103C32147C87B00ACCA8F /* TimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
 		593E7DC421201A60005F403B /* ThemeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
+		59471D762165383D0067C36B /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
+		59471D7821653FC90067C36B /* PagingPerCellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingPerCellFlowLayout.swift; sourceTree = "<group>"; };
 		5973FC502163747D00E71483 /* pinkBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkBG.png; sourceTree = "<group>"; };
 		5973FC512163747D00E71483 /* blackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackBG.png; sourceTree = "<group>"; };
 		5973FC522163747D00E71483 /* purpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purpleBG.png; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 		5973FC752163747D00E71483 /* calendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarIcon.png; sourceTree = "<group>"; };
 		5973FC762163747D00E71483 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		5973FC772163747D00E71483 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		5973FC9D216519BD00E71483 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		5973FC9F21651A4300E71483 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		5983856F214D5D38000F18E5 /* HowToUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		5983857C215058B5000F18E5 /* CalenderTutoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderTutoPageViewController.swift; sourceTree = "<group>"; };
 		5983861221510DEC000F18E5 /* BaseTutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTutoViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +260,17 @@
 				5983861221510DEC000F18E5 /* BaseTutoViewController.swift */,
 			);
 			path = menu;
+			sourceTree = "<group>";
+		};
+		59471D7A216570F10067C36B /* carousel */ = {
+			isa = PBXGroup;
+			children = (
+				5973FC9D216519BD00E71483 /* CarouselView.swift */,
+				5973FC9F21651A4300E71483 /* CarouselCell.swift */,
+				59471D762165383D0067C36B /* CarouselViewController.swift */,
+				59471D7821653FC90067C36B /* PagingPerCellFlowLayout.swift */,
+			);
+			path = carousel;
 			sourceTree = "<group>";
 		};
 		5973FC4E2163747D00E71483 /* images */ = {
@@ -386,6 +405,7 @@
 				59D2F7B720AAE2EE00C3B2BC /* Info.plist */,
 				590698C920B06CDA009F5350 /* Dense-Regular.otf */,
 				590698C120B05D7D009F5350 /* Inter-UI-Medium.otf */,
+				59471D7A216570F10067C36B /* carousel */,
 			);
 			path = note;
 			sourceTree = "<group>";
@@ -764,7 +784,10 @@
 				5906BB9E20B42F9B000C18C3 /* realmDataSet.swift in Sources */,
 				59D2F7AE20AAE2EB00C3B2BC /* ViewController.swift in Sources */,
 				5983861321510DEC000F18E5 /* BaseTutoViewController.swift in Sources */,
+				59471D7921653FC90067C36B /* PagingPerCellFlowLayout.swift in Sources */,
+				5973FCA021651A4300E71483 /* CarouselCell.swift in Sources */,
 				590698D820B1C91A009F5350 /* DrawView.swift in Sources */,
+				5973FC9E216519BD00E71483 /* CarouselView.swift in Sources */,
 				5914491A211E8FF90074D728 /* RootTableViewController.swift in Sources */,
 				59D2F7E020AAF78000C3B2BC /* CustomCell.swift in Sources */,
 				59D2F7AC20AAE2EB00C3B2BC /* AppDelegate.swift in Sources */,
@@ -773,6 +796,7 @@
 				5906BBA020BAFF46000C18C3 /* TableViewCell.swift in Sources */,
 				590698D020B17762009F5350 /* WriteSchedulesViewController.swift in Sources */,
 				59144922211FC4B20074D728 /* HelpViewController.swift in Sources */,
+				59471D772165383D0067C36B /* CarouselViewController.swift in Sources */,
 				593103C42147C87B00ACCA8F /* TimeSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

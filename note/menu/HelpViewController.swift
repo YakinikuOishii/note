@@ -92,7 +92,17 @@ class HelpViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         print("index is \(indexPath.row)")
         
         if indexPath.section == 0 {
-            
+            if indexPath.row == 0 {
+                let url = URL(string: "https://twitter.com/SPEEDAY1?lang=ja")!
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }else if indexPath.row == 1 {
+                let url = URL(string: "https://twitter.com/SPEEDAY1?lang=ja")!
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }
         }else if indexPath.section == 1 {
             performSegue(withIdentifier: "toHowTo", sender: nil)
         }
