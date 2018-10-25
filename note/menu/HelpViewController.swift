@@ -93,10 +93,19 @@ class HelpViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let url = URL(string: "https://twitter.com/SPEEDAY1?lang=ja")!
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
+//                let url = URL(string: "https://twitter.com/SPEEDAY1?lang=ja")!
+//                if UIApplication.shared.canOpenURL(url) {
+//                    UIApplication.shared.open(url)
+//                }
+                let title = "開発中の機能です"
+                let message = "アップデートをお待ちください"
+                let close = "閉じる"
+                
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let closeButton = UIAlertAction(title: close, style: .cancel, handler: nil)
+                alert.addAction(closeButton)
+                
+                present(alert, animated: true, completion: nil)
             }else if indexPath.row == 1 {
                 let url = URL(string: "https://twitter.com/SPEEDAY1?lang=ja")!
                 if UIApplication.shared.canOpenURL(url) {

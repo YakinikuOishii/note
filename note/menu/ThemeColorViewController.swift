@@ -15,7 +15,7 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     let colorNameArray: [String] = ["ブルー","グリーン","オレンジ","レッド","ピンク","パープル","ネイビー"]
     let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
     
-    let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
+    let appdelegate: AppDelegate! = UIApplication.shared.delegate as? AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()

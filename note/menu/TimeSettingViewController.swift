@@ -14,7 +14,7 @@ class TimeSettingViewController: UIViewController,UITableViewDataSource,UITableV
     @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet var backButton: UIBarButtonItem!
     
-    let appdelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
+    let appdelegate: AppDelegate! = UIApplication.shared.delegate as? AppDelegate
     
     var timeNameArray: [String] = ["前日19時","前日20時","前日21時","前日22時","前日23時","当日0時","当日5時","当日6時","当日7時","当日8時","当日9時","当日10時"]
     var timeArray: [Int] = [19,20,21,22,23,0,5,6,7,8,9,10]

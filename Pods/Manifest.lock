@@ -1,16 +1,16 @@
 PODS:
-  - JTAppleCalendar (7.0.6)
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
-  - SideMenu (3.1.5)
+  - JTAppleCalendar (7.1.6)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+  - SideMenu (4.0.0)
 
 DEPENDENCIES:
   - JTAppleCalendar (~> 7.0)
   - RealmSwift
-  - SideMenu
+  - SideMenu (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -20,11 +20,11 @@ SPEC REPOS:
     - SideMenu
 
 SPEC CHECKSUMS:
-  JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
-  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
+  JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
 
-PODFILE CHECKSUM: 815b45f212b49dc518a29660026f198034ec60dc
+PODFILE CHECKSUM: 28fe49ae0b59fd414ed7e47c04c424b9d14470cf
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

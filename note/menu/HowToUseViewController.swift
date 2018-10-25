@@ -12,12 +12,20 @@ class HowToUseViewController: UIViewController {
     
     let borderColor = UIColor(red: 0.53, green: 0.53, blue: 0.53, alpha: 1.0)
     
+    var appdelegate: AppDelegate! = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet var calenderButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
+        
+        for i in 0...6 {
+            if appdelegate.colorIndex == i {
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appdelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
+            }
+        }
         
         calenderButton.layer.borderColor = borderColor.cgColor
         calenderButton.layer.borderWidth = 1.5
