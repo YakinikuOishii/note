@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -20,7 +21,12 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
+        
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,.font: UIFont(name: "Dense", size: 20)!]
+        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuAlwaysAnimate = true
         
         for i in 0...6 {
             if appdelegate.colorIndex == i {
@@ -80,10 +86,6 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
 
     }
-
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
