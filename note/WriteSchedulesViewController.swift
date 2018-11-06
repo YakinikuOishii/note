@@ -161,50 +161,116 @@ class WriteSchedulesViewController: UIViewController {
                 realm.add(dataSet)
             }
             
-            // 通知
             let center = UNUserNotificationCenter.current()
-            center.delegate = self as? UNUserNotificationCenterDelegate
-
+            // ① NotificationContent
             let content = UNMutableNotificationContent()
-//            content.title = ""
-//            content.body = "通知だよ"
-            content.badge = 1
-            content.sound = .default()
             let calendar = Calendar(identifier: .gregorian)
-//            var components = calendar.dateComponents([.month, .day, .hour, .minute], from: saveDate)
-            var yesterday = DateComponents()
-            yesterday.day = -1
             let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
+            
             if appDelegate.tomorrowBool == true {
                 print("通知呼ばれたtomorrow")
                 content.title = "明日の予定があります"
-                // カレンダー上でマイナス1日してくれる
+                content.badge = 1
+                content.sound = .default()
+                
+                var yesterday = DateComponents()
+                yesterday.day = -1
+
+//              カレンダー上でマイナス1日してくれる
                 let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
                 var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
                 if hour != nil {
                     tomorrowComponents.hour = hour
                 }else{
-                    tomorrowComponents.hour = 6
+                    tomorrowComponents.hour = 22
                 }
                 
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-//                print(tomorrowComponents.hour as Any)
                 center.add(request)
             }else{
                 print("通知呼ばれたtoday")
                 content.title = "今日の予定があります"
+                content.badge = 1
+                content.sound = .default()
+                
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
                 if hour != nil {
                     components.hour = hour
+                    
                 }else{
-                    components.hour = 6
+                    components.hour = 21
                 }
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-//                print(components.hour as Any)
+                ////                print(components.hour as Any)
+                //                center.add(request)
+                
+//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//                let request = UNNotificationRequest(identifier: "SamplePush", content: content, trigger: trigger)
                 center.add(request)
             }
+//            content.title = "サンプルのローカルPushです"
+//            content.subtitle = "サンプルのsubtitleです"
+//            content.body = "サンプルのbodyです"
+//            content.badge = 1
+//            content.sound = .default()
+            
+            // ② NotificationTrigger
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            // ③ NotificationRequest
+//            let request = UNNotificationRequest(identifier: "SamplePush", content: content, trigger: trigger)
+            
+            // ④ 通知の追加
+//            center.add(request)
+            
+            
+            
+            // 通知
+//            let center = UNUserNotificationCenter.current()
+//            center.delegate = self as? UNUserNotificationCenterDelegate
+//
+//            let content = UNMutableNotificationContent()
+////            content.title = ""
+////            content.body = "通知だよ"
+//            content.badge = 1
+//            content.sound = .default()
+//            let calendar = Calendar(identifier: .gregorian)
+////            var components = calendar.dateComponents([.month, .day, .hour, .minute], from: saveDate)
+//            var yesterday = DateComponents()
+//            yesterday.day = -1
+//            let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
+//            if appDelegate.tomorrowBool == true {
+//                print("通知呼ばれたtomorrow")
+//                content.title = "明日の予定があります"
+//                // カレンダー上でマイナス1日してくれる
+//                let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
+//                var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
+//                if hour != nil {
+//                    tomorrowComponents.hour = hour
+//                }else{
+//                    tomorrowComponents.hour = 6
+//                }
+//
+//                let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
+//                let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+////                print(tomorrowComponents.hour as Any)
+//                center.add(request)
+//            }else{
+//                print("通知呼ばれたtoday")
+//                content.title = "今日の予定があります"
+//                var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
+//                if hour != nil {
+//                    components.hour = hour
+//                }else{
+//                    components.hour = 6
+//                }
+//                let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
+//                let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
+////                print(components.hour as Any)
+//                center.add(request)
+//            }
             
             
             

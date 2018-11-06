@@ -86,7 +86,10 @@ class RootTableViewController: UITableViewController{
             }else if indexPath.row == 1 {
                 performSegue(withIdentifier: "toHowTo", sender: nil)
             }else if indexPath.row == 2 {
-                // リリース後にApp Storeのページへ遷移
+                if let url = URL(string: "https://itunes.apple.com/jp/app/speeday/id1439199775?l=en&mt=8") {
+                    UIApplication.shared.open(url)
+                }
+                //飛べない？
             }else{
                 
             }

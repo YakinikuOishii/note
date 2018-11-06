@@ -77,6 +77,8 @@ class TimeSettingViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     @IBAction func save() {
+        saveTime.removeObject(forKey: "saveTime")
+        saveName.removeObject(forKey: "saveName")
         saveTime.set(selectedTime, forKey: "saveTime")
         saveName.set(selectedName, forKey: "saveName")
         dismiss(animated: true, completion:nil)

@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedDate: Date!
     var image: UIImage!
     var index: Int!
-    var colorIndex: Int! = 0
-    var tomorrowBool: Bool = true
+    var colorIndex: Int!
+    var tomorrowBool: Bool = false
     var dateArray: [Date] = []
     let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
     var timeTitleArray: [String] = ["前日19時","前日20時","前日21時","前日22時","前日23時","当日0時","当日5時","当日6時","当日7時","当日8時","当日9時","当日10時"]
