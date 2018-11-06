@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let formatter = DateFormatter()
     var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    var saveColor = UserDefaults.standard
     
     var weekArray = ["SUN","MON","TUE","WED","THU","FRI","SAT"]
     var weekLabel: UILabel!
@@ -52,6 +53,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let addSchedulesButton = UIButton()
         // ビューのサイズからどのくらい離れてるかで描画する
         addSchedulesButton.frame = CGRect(x: self.view.frame.width - 130, y: self.view.frame.height - 130,width: 100, height: 100)
+        
+//        if appDelegate.colorIndex != nil {
+//            appDelegate.colorIndex = saveColor.object(forKey: "color") as? Int
+//        }else{
+//            appDelegate.colorIndex = 0
+//        }
         
         for i in 0...6 {
             if appDelegate.colorIndex == i {

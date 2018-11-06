@@ -17,6 +17,8 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     let bgColorArray: [String] = ["blue","green","orange","red","pink","purple","black"]
     
     let appdelegate: AppDelegate! = UIApplication.shared.delegate as? AppDelegate
+    
+    let saveColor = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,13 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         SideMenuManager.default.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuAlwaysAnimate = true
+        
+//        if appdelegate.colorIndex != nil {
+//            appdelegate.colorIndex = saveColor.object(forKey: "color") as? Int
+//        }else{
+//
+//        }
+        
         
         for i in 0...6 {
             if appdelegate.colorIndex == i {
@@ -74,11 +83,12 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         
         tableView.deselectRow(at: indexPath, animated: false)
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        
+//        saveColor.removeObject(forKey: "color")
         for i in 0...6 {
             if indexPath.section == i {
                 self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: bgColorArray[i]), for: .topAttached, barMetrics: .default)
                 appdelegate.colorIndex = i
+//                saveColor.set(i, forKey: "color")
             }else{
                 
             }
