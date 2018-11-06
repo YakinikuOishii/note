@@ -17,6 +17,7 @@ class WriteSchedulesViewController: UIViewController {
     let realm = try! Realm()
     let dataSet = realmDataSet()
     let saveTime = UserDefaults.standard
+    var saveColor = UserDefaults.standard
     
     var selectedDate: Date!
     var saveDate: Date!

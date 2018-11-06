@@ -18,7 +18,7 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
     
     let appdelegate: AppDelegate! = UIApplication.shared.delegate as? AppDelegate
     
-    let saveColor = UserDefaults.standard
+    var saveColor = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,8 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         
         tableView.deselectRow(at: indexPath, animated: false)
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-//        saveColor.removeObject(forKey: "color")
+        saveColor.removeObject(forKey: "color")
+        
         for i in 0...6 {
             if indexPath.section == i {
                 self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: bgColorArray[i]), for: .topAttached, barMetrics: .default)
@@ -93,6 +94,9 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
                 
             }
         }
+        
+        saveColor.set(appdelegate.colorIndex, forKey: "Color")
+        print(saveColor)
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
 
     }

@@ -60,6 +60,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //            appDelegate.colorIndex = 0
 //        }
         
+        appDelegate.colorIndex = saveColor.object(forKey: "Color") as? Int
+        
         for i in 0...6 {
             if appDelegate.colorIndex == i {
                 self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
