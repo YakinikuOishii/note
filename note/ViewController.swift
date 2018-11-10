@@ -126,7 +126,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
    // テーブルビューセルがタップされた時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.index = indexPath.row
-        print("タップされたセルは\(appDelegate.index)")
+        print("タップされたセルは\(String(describing: appDelegate.index))")
         performSegue(withIdentifier: "toWriteSchedules", sender: nil)
     }
     

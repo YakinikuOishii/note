@@ -31,9 +31,6 @@ class WriteSchedulesViewController: UIViewController {
     @IBOutlet var titleText: UILabel!
     @IBOutlet var memoText: UILabel!
     
-//    @IBOutlet var leftBurButtonItem: UIBarButtonItem!
-//    @IBOutlet var rightBurButtonItem: UIBarButtonItem!
-    
     var titleData: NSData!
     var memoData: NSData!
     var titleImage: UIImage!
@@ -161,8 +158,12 @@ class WriteSchedulesViewController: UIViewController {
                 realm.add(dataSet)
             }
             
+        } catch {
+                
+        }
+            
+            // 通知
             let center = UNUserNotificationCenter.current()
-            // ① NotificationContent
             let content = UNMutableNotificationContent()
             let calendar = Calendar(identifier: .gregorian)
             let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
@@ -181,6 +182,7 @@ class WriteSchedulesViewController: UIViewController {
                 var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
                 if hour != nil {
                     tomorrowComponents.hour = hour
+                    print("hourは" + "\(String(describing: hour))")
                 }else{
                     tomorrowComponents.hour = 22
                 }
@@ -197,92 +199,14 @@ class WriteSchedulesViewController: UIViewController {
                 var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
                 if hour != nil {
                     components.hour = hour
-                    
+                    print("hourは" + "\(String(describing: hour))")
                 }else{
-                    components.hour = 21
+                    components.hour = 6
                 }
                 let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
                 let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-                ////                print(components.hour as Any)
-                //                center.add(request)
-                
-//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//                let request = UNNotificationRequest(identifier: "SamplePush", content: content, trigger: trigger)
                 center.add(request)
             }
-//            content.title = "サンプルのローカルPushです"
-//            content.subtitle = "サンプルのsubtitleです"
-//            content.body = "サンプルのbodyです"
-//            content.badge = 1
-//            content.sound = .default()
-            
-            // ② NotificationTrigger
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            
-            // ③ NotificationRequest
-//            let request = UNNotificationRequest(identifier: "SamplePush", content: content, trigger: trigger)
-            
-            // ④ 通知の追加
-//            center.add(request)
-            
-            
-            
-            // 通知
-//            let center = UNUserNotificationCenter.current()
-//            center.delegate = self as? UNUserNotificationCenterDelegate
-//
-//            let content = UNMutableNotificationContent()
-////            content.title = ""
-////            content.body = "通知だよ"
-//            content.badge = 1
-//            content.sound = .default()
-//            let calendar = Calendar(identifier: .gregorian)
-////            var components = calendar.dateComponents([.month, .day, .hour, .minute], from: saveDate)
-//            var yesterday = DateComponents()
-//            yesterday.day = -1
-//            let hour: Int! = saveTime.object(forKey: "saveTime") as? Int
-//            if appDelegate.tomorrowBool == true {
-//                print("通知呼ばれたtomorrow")
-//                content.title = "明日の予定があります"
-//                // カレンダー上でマイナス1日してくれる
-//                let tomorrowDate = calendar.date(byAdding: yesterday, to: saveDate)
-//                var tomorrowComponents = calendar.dateComponents([.month, .day, .hour], from: tomorrowDate!)
-//                if hour != nil {
-//                    tomorrowComponents.hour = hour
-//                }else{
-//                    tomorrowComponents.hour = 6
-//                }
-//
-//                let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
-//                let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-////                print(tomorrowComponents.hour as Any)
-//                center.add(request)
-//            }else{
-//                print("通知呼ばれたtoday")
-//                content.title = "今日の予定があります"
-//                var components = calendar.dateComponents([.month, .day, .hour], from: saveDate)
-//                if hour != nil {
-//                    components.hour = hour
-//                }else{
-//                    components.hour = 6
-//                }
-//                let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
-//                let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-////                print(components.hour as Any)
-//                center.add(request)
-//            }
-            
-            
-            
-            
-//            let components = DateComponents(day: 1, hour:8, minute:30)
-//            let trigger = UNCalendarNotificationTrigger.init(dateMatching: tomorrowComponents, repeats: true)
-//            let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-//            center.add(request)
-            
-        } catch {
-            
-        }
         
     }
     

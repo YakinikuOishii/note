@@ -50,11 +50,26 @@ class TimeSettingViewController: UIViewController,UITableViewDataSource,UITableV
         return timeNameArray.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        cell?.textLabel?.text = timeNameArray[indexPath.row]
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+        return cell!
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         selectedTime = timeArray[indexPath.row]
         selectedName = timeNameArray[indexPath.row]
+        if indexPath.row >= 5 {
+            appdelegate.tomorrowBool = false
+        }else if indexPath.row <= 4 {
+            appdelegate.tomorrowBool = true
+        }
+        print("indexPathは")
         print(indexPath.row)
+        print("boolは")
+        print(appdelegate.tomorrowBool)
         cell?.accessoryType = .checkmark
     }
     //
@@ -62,18 +77,6 @@ class TimeSettingViewController: UIViewController,UITableViewDataSource,UITableV
         let cell = tableView.cellForRow(at: indexPath)
         // チェックマークを外す
         cell?.accessoryType = .none
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = timeNameArray[indexPath.row]
-        if indexPath.row >= 5 {
-            appdelegate.tomorrowBool = false
-        }else{
-            appdelegate.tomorrowBool = true
-        }
-        cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        return cell!
     }
     
     @IBAction func save() {
