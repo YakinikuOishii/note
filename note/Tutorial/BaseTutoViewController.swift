@@ -10,19 +10,19 @@ import UIKit
 
 class BaseTutoViewController: UIViewController {
     
-    @IBOutlet var button: UIButton!
+//    @IBOutlet var button: UIButton!
     
     let borderColor = UIColor(red: 0.133, green: 0.654, blue: 0.945, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        button.layer.borderColor = borderColor.cgColor
+//        button.layer.borderColor = borderColor.cgColor
 
     }
     
-    @IBAction func skip() {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func skip() {
+//        dismiss(animated: true, completion: nil)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
