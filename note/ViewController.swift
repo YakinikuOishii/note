@@ -39,7 +39,52 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewdid")
 
+        // ナビゲーションバー
+        
+//        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Dense", size: 35)!]
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+//        SideMenuManager.default.menuFadeStatusBar = false
+//        SideMenuManager.default.menuAlwaysAnimate = true
+//
+//        // 予定追加するボタン
+//        let addSchedulesButton = UIButton()
+//        // ビューのサイズからどのくらい離れてるかで描画する
+//        addSchedulesButton.frame = CGRect(x: self.view.frame.width - 130, y: self.view.frame.height - 130,width: 100, height: 100)
+//
+//        if appDelegate.colorIndex == nil {
+//            appDelegate.colorIndex = 0
+//        }else{
+//            appDelegate.colorIndex = saveColor.object(forKey: "Color") as? Int
+//        }
+//
+//
+//        for i in 0...6 {
+//            if appDelegate.colorIndex == i {
+//                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
+//                bgImageView.image = UIImage(named: appDelegate.bgColorArray[i] + "BG")
+//                addSchedulesButton.setImage(UIImage(named: appDelegate.bgColorArray[i] + "Button"), for: UIControlState())
+//            }
+//        }
+//
+//
+//
+//        addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
+//        self.view.addSubview(addSchedulesButton)
+//
+//        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        tableView.rowHeight = 85
+//        self.tableView.dataSource = self
+//        self.tableView.delegate = self
+//
+//        setupCalendarView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         // ナビゲーションバー
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Dense", size: 35)!]
@@ -80,10 +125,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         
         setupCalendarView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewwill")
+        
+        print("viewwill呼ばれた")
+        
         tableView.reloadData()
         calendarView.reloadData(withanchor: today)
     }
