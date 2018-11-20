@@ -97,13 +97,13 @@ class WriteSchedulesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         index = appDelegate.index
-        print("viewwill")
         for i in 0...6 {
             if appDelegate.colorIndex == i {
                 self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
                 imageView.image = UIImage(named: appDelegate.bgColorArray[i])
             }
         }
+        print("viewwill")
     }
     
     @IBAction func saveSchedules() {

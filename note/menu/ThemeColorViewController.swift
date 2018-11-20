@@ -83,7 +83,7 @@ class ThemeColorViewController: UIViewController,UITableViewDataSource,UITableVi
         
         tableView.deselectRow(at: indexPath, animated: false)
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        saveColor.removeObject(forKey: "color")
+        saveColor.removeObject(forKey: "Color")
         
         for i in 0...6 {
             if indexPath.section == i {

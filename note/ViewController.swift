@@ -99,12 +99,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // ビューのサイズからどのくらい離れてるかで描画する
         addSchedulesButton.frame = CGRect(x: self.view.frame.width - 130, y: self.view.frame.height - 130,width: 100, height: 100)
         
-        if appDelegate.colorIndex == nil {
-            appDelegate.colorIndex = 0
+        if let index = saveColor.object(forKey: "Color") as? Int {
+            appDelegate.colorIndex = index
         }else{
-            appDelegate.colorIndex = saveColor.object(forKey: "Color") as? Int
+            appDelegate.colorIndex = 0
         }
-        
         
         for i in 0...6 {
             if appDelegate.colorIndex == i {
