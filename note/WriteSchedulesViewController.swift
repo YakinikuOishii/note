@@ -203,7 +203,7 @@ class WriteSchedulesViewController: UIViewController {
                 center.add(request)
             }else{
                 print("通知呼ばれたtoday")
-                content.title = "今日の予定があります"
+                content.body = "今日の予定があります"
                 content.badge = 1
                 content.sound = .default()
                 

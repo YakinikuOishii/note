@@ -41,46 +41,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         print("viewdid")
 
-        // ナビゲーションバー
+        UIApplication.shared.applicationIconBadgeNumber = 0
         
-//        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Dense", size: 35)!]
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        SideMenuManager.default.menuPresentMode = .viewSlideInOut
-//        SideMenuManager.default.menuFadeStatusBar = false
-//        SideMenuManager.default.menuAlwaysAnimate = true
-//
-//        // 予定追加するボタン
-//        let addSchedulesButton = UIButton()
-//        // ビューのサイズからどのくらい離れてるかで描画する
-//        addSchedulesButton.frame = CGRect(x: self.view.frame.width - 130, y: self.view.frame.height - 130,width: 100, height: 100)
-//
-//        if appDelegate.colorIndex == nil {
-//            appDelegate.colorIndex = 0
-//        }else{
-//            appDelegate.colorIndex = saveColor.object(forKey: "Color") as? Int
-//        }
-//
-//
-//        for i in 0...6 {
-//            if appDelegate.colorIndex == i {
-//                self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: appDelegate.bgColorArray[i]), for: .topAttached, barMetrics: .default)
-//                bgImageView.image = UIImage(named: appDelegate.bgColorArray[i] + "BG")
-//                addSchedulesButton.setImage(UIImage(named: appDelegate.bgColorArray[i] + "Button"), for: UIControlState())
-//            }
-//        }
-//
-//
-//
-//        addSchedulesButton.addTarget(self,action: #selector(ViewController.buttonTapped(sender:)),for: .touchUpInside)
-//        self.view.addSubview(addSchedulesButton)
-//
-//        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        tableView.rowHeight = 85
-//        self.tableView.dataSource = self
-//        self.tableView.delegate = self
-//
-//        setupCalendarView()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,17 +86,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        setupCalendarView()
+//        setupCalendarView()
         
         print("viewwill呼ばれた")
+        
+        if selectedDate != nil {
+            setupCalendarView(date: selectedDate)
+        }else{
+            setupCalendarView(date: today)
+        }
         
         tableView.reloadData()
         calendarView.reloadData(withanchor: today)
     }
-    
-//    @IBAction func sideMenu() {
-//         performSegue(withIdentifier: "LeftMenuNavigationController", sender: nil)
-//    }
     
     // 新規作成ボタンのイベント
     @objc func buttonTapped(sender: Any) {
@@ -190,14 +155,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // カレンダー関連
-    func setupCalendarView() {
+    func setupCalendarView(date: Date!) {
         calendarView.minimumLineSpacing = 0
-        calendarView.minimumInteritemSpacing = 0
-        calendarView.backgroundColor = UIColor.clear
-        calendarView.selectDates([today])
-        calendarView.reloadData(withanchor: today)
-        calendarView.visibleDates { (visibleDates) in
-            self.setupViewsOfCalendarView(from: visibleDates)
+                calendarView.minimumInteritemSpacing = 0
+                calendarView.backgroundColor = UIColor.clear
+                calendarView.selectDates([date])
+                calendarView.reloadData(withanchor: date)
+                calendarView.visibleDates { (visibleDates) in
+                    self.setupViewsOfCalendarView(from: visibleDates)
         }
     }
     
@@ -249,7 +214,7 @@ extension ViewController: JTAppleCalendarViewDataSource {
         formatter.locale = Calendar.current.locale
         
         let startDate = formatter.date(from: "2018 01 01")
-        let endDate = formatter.date(from: "2019 12 31")
+        let endDate = formatter.date(from: "2020 12 31")
         
         let parameters =  ConfigurationParameters(startDate: startDate!, endDate: endDate!)
         return parameters
